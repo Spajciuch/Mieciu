@@ -2,6 +2,7 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 const config = require("./config.json")
 const os = require('os');
+const general = client.channels.get("460799362247950337")
 const dev = client.users.get('367390191721381890');
 const fs = require('fs')
 client.commands = new Discord.Collection()
@@ -64,7 +65,13 @@ client.on("ready", () => {
     console.log("[client] Wystartowano o " + time)
     console.log(`[client] Zalogowano jako: ${client.user.username}`);
     console.log("[client] Bot obsługuje " + client.users.size + " osób, " +  client.channels.size + " kanałów, " + client.guilds.size + " serwerów");
-//\x1b[36m%s\x1b[0m
+    let embed = new Discord.RichEmbed()
+    .setTitle("Uruchomienie bota")
+    .addField("Godzina", time,true)
+    .addField("Data", `${d.getDay}.${d.getMonth()}.${d.getFullYear()}`)
+    .setColor(config.embed_color)
+    general.send({embed})
+  //\x1b[36m%s\x1b[0m
 });
 client.on("messageUpdate", (oldMessage, newMessage) => {
   if(!oldMessage.guild) return
