@@ -66,7 +66,7 @@ client.on("ready", () => {
     let embed = new Discord.RichEmbed()
     .setTitle("Uruchomienie bota")
     .addField("Godzina", time,true)
-    .addField("Data", `${d.getDay()}.${d.getMonth()}.${d.getFullYear()}`)
+    .addField("Data", `new Date()`)
     .setColor(config.embed_color)
     channelgeneral.send({embed})
   //\x1b[36m%s\x1b[0m
