@@ -58,7 +58,7 @@ switch (new Date().getDay()) {
 }
 client.on("ready", () => {
     const channelgeneral = client.channels.find("id", "460799362247950337");
-    client.user.setActivity("m!help -general", {type: "STREAMING"});
+    client.user.setActivity("saveyourinternet.eu", {type: "STREAMING"});
     console.log('[client] Logowanie')
     console.log("[client] Wystartowano o " + time)
     console.log(`[client] Zalogowano jako: ${client.user.username}`);
@@ -66,7 +66,7 @@ client.on("ready", () => {
     let embed = new Discord.RichEmbed()
     .setTitle("Uruchomienie bota")
     .addField("Godzina", time,true)
-    .addField("Data", new Date())
+    .addField("Data", new Date(0))
     .setColor(config.embed_color)
     channelgeneral.send({embed})
   //\x1b[36m%s\x1b[0m
