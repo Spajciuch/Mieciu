@@ -2,7 +2,6 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 const config = require("./config.json")
 const os = require('os');
-const general = client.channels.get("460799362247950337")
 const dev = client.users.get('367390191721381890');
 const fs = require('fs')
 client.commands = new Discord.Collection()
