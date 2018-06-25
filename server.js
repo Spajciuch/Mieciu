@@ -16,7 +16,7 @@ const patg = require ('./Giphy/pat.json')
 const slapg  = require('./Giphy/slap.json')
 const punchg = require('./Giphy/punch.json')
 const Music = require('discord.js-musicbot-addon-v2-pl');
-
+const general = client.channels.get("460799362247950337")
 client.on("guildCreate", guild => {
   // This event triggers when the bot joins a guild.
  console.log("Dodano mnie na serwer: " + guild.name)
