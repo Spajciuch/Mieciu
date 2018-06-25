@@ -68,7 +68,7 @@ client.on("ready", () => {
     .addField("Godzina", time,true)
     .addField("Data", `${d.getDay}.${d.getMonth()}.${d.getFullYear()}`)
     .setColor(config.embed_color)
-    general.send({embed})
+    channelgeneral.send({embed})
   //\x1b[36m%s\x1b[0m
 });
 client.on("messageUpdate", (oldMessage, newMessage) => {
