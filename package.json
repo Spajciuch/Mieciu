@@ -71,5 +71,6 @@
     "yahoo-weather": "^2.2.2",
     "youtube-playlist-info": "^1.1.2",
     "ytdl-core": "^0.20.4"
+    "ytsearcher" : "1.0.3"
   }
 }
