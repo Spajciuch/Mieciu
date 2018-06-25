@@ -100,7 +100,7 @@ client.on('guildMemberRemove', member => {
   let embed = new Discord.RichEmbed()
   .setTitle("Osoba wyszła")
   .addField("Osoba:", member,true)
-  .addField("Data", `${d.getDay()}.${d.getMonth()}.${d.getFullYear()} | ${d.getHours()+2}:${d.getMinutes()}`,true)
+  .addField("Data", `${d.getDate()}.${d.getMonth()+1}.${d.getFullYear()} | ${d.getHours()+2}:${d.getMinutes()}`,true)
   .setColor(config.embed_color)
   log.send({embed: embed})
 }});
@@ -115,7 +115,7 @@ client.on('guildMemberRemove', member => {
   let embed = new Discord.RichEmbed()
   .setTitle("Osoba wyszła")
   .addField("Osoba:", member,true)
-  .addField("Data", `${d.getDay()}.${d.getMonth()}.${d.getFullYear()} | ${d.getHours()+2}:${d.getMinutes()}`,true)
+  .addField("Data", `${d.getDate()}.${d.getMonth() +1}.${d.getFullYear()} | ${d.getHours()+2}:${d.getMinutes()}`,true)
   .setColor(config.embed_color)
   log.send({embed: embed})
 }
@@ -138,7 +138,7 @@ client.on('guildMemberAdd', member => {
   let embed = new Discord.RichEmbed()
   .setTitle("Nowa osoba")
   .addField("Użytkownik: ",member,true)
-  .addField("Data:  ", member.joinedAt.getDay() + '.'+ member.joinedAt.getMonth() +'.'+ member.joinedAt.getFullYear() + ' | '+ hr + ":" + member.joinedAt.getMinutes(), true)
+  .addField("Data:  ", member.joinedAt.getDate() + '.'+ member.joinedAt.getMonth() +1+'.'+ member.joinedAt.getFullYear() + ' | '+ hr + ":" + member.joinedAt.getMinutes(), true)
   .setColor(config.embed_color)
   logi.send({embed: embed}).catch(error => 0)
 }
@@ -160,7 +160,7 @@ client.on('guildMemberAdd', member => {
     let embed = new Discord.RichEmbed()
     .setTitle("Nowa osoba")
     .addField("Użytkownik: ",member,true)
-    .addField("Data:  ", member.joinedAt.getDay() + '.'+ member.joinedAt.getMonth() +'.'+ member.joinedAt.getFullYear() + ' | '+ hr + ":" + member.joinedAt.getMinutes(), true)
+    .addField("Data:  ", member.joinedAt.getDate() + '.'+ member.joinedAt.getMonth() +1+'.'+ member.joinedAt.getFullYear() + ' | '+ hr + ":" + member.joinedAt.getMinutes(), true)
     .setColor(config.embed_color)
     logsy.send({embed: embed})
 });
