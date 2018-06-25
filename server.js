@@ -66,7 +66,7 @@ client.on("ready", () => {
     let embed = new Discord.RichEmbed()
     .setTitle("Uruchomienie bota")
     .addField("Godzina", time,true)
-    .addField("Data", `${d.getDate()}.${d.getMonth()+1}.${d.getFullYear()})
+    .addField("Data", `${d.getDate()}.${d.getMonth()+1}.${d.getFullYear()}`)
     .setColor(config.embed_color)
     channelgeneral.send({embed})
   //\x1b[36m%s\x1b[0m
@@ -89,6 +89,37 @@ client.on("messageUpdate", (oldMessage, newMessage) => {
   channel.send({embed: embed}).catch(error => 0)
 
 })
+client.on('guildMemberRemove', member => {
+  if(member.guild.id == '415917934268121118'){
+  const channel = member.guild.channels.find('name', 'witamy-zegnamy');
+  const log = member.guild.channels.find('name', 'logi');
+  // Do nothing if the channel wasn't found on this server
+  if (!channel) return;
+  // Send the message, mentioning the member
+  channel.send(`**${member.user.username}** nas opuścił`);
+  let embed = new Discord.RichEmbed()
+  .setTitle("Osoba wyszła")
+  .addField("Osoba:", member,true)
+  .addField("Data", `${d.getDay()}.${d.getMonth()}.${d.getFullYear()} | ${d.getHours()+2}:${d.getMinutes()}`,true)
+  .setColor(config.embed_color)
+  log.send({embed: embed})
+}});
+client.on('guildMemberRemove', member => {
+  if(member.guild.id == '423545059666034689'){
+  const channel = member.guild.channels.find('name', 'witamy-zegnamy');
+  const log = member.guild.channels.find('name', 'logi');
+  // Do nothing if the channel wasn't found on this server
+  if (!channel) return;//
+  // Send the message, mentioning the member
+  channel.send(`**${member.user.username}** nas opuścił`);
+  let embed = new Discord.RichEmbed()
+  .setTitle("Osoba wyszła")
+  .addField("Osoba:", member,true)
+  .addField("Data", `${d.getDay()}.${d.getMonth()}.${d.getFullYear()} | ${d.getHours()+2}:${d.getMinutes()}`,true)
+  .setColor(config.embed_color)
+  log.send({embed: embed})
+}
+});
 //==============================================================================
 client.on('guildMemberAdd', member => {
   if(member.guild.id == '415917934268121118'){
