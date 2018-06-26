@@ -289,9 +289,9 @@ if(command == 'cmd.list'){
       embd.setFooter("Komendy w [osobnych plikach]")
       
     })
-      message.channel.send({embed: embd})
+     
   })
-
+ message.channel.send({embed: embd})
 }
   let commandfile = client.commands.get(cmd.slice(prefix.length));
 if(commandfile) commandfile.run(client ,message,args);
