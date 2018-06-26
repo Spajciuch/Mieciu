@@ -284,7 +284,7 @@ if(command == 'cmd.list'){
       let props = require(`./commands/${f}`)
       var fls = f + '\n'
       let embed = new Discord.RichEmbed()
-      embd.addField("Komendy",fls)
+      embd.setDescription(fls)
       embd.setColor(config.embed_color)
       embd.setFooter("Komendy w [osobnych plikach]")
       
