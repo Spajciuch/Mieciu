@@ -275,7 +275,7 @@ client.on("message", async message => {
   let prefix = config.prefix
   let messageArray = message.content.split(" ");
   let cmd = messageArray[0];
-
+var embd = new Discord.RichEmbed()
 if(command == 'cmd.list'){
   fs.readdir(`./commands/`,(err, files)=>{
     if(err) console.log(err)
@@ -284,12 +284,12 @@ if(command == 'cmd.list'){
       let props = require(`./commands/${f}`)
       var fls = f + '\n'
       let embed = new Discord.RichEmbed()
-      .addField("Komendy",fls)
-      .setColor(config.embed_color)
-      .setFooter("Komendy w [osobnych plikach]")
-      message.channel.send({embed: embed})
+      embd.addField("Komendy",fls)
+      embd.setColor(config.embed_color)
+      embd.setFooter("Komendy w [osobnych plikach]")
+      
     })
-
+      message.channel.send({embed: embd})
   })
 
 }
