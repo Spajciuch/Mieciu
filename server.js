@@ -282,9 +282,9 @@ if(command == 'cmd.list'){
     let jsfile = files.filter(f => f.split(".").pop() == "js")
     jsfile.forEach((f,i)=> {
       let props = require(`./commands/${f}`)
-
+      var fls = f + '\n'
       let embed = new Discord.RichEmbed()
-      .addField("Komendy",`${f}`)
+      .addField("Komendy",fls)
       .setColor(config.embed_color)
       .setFooter("Komendy w [osobnych plikach]")
       message.channel.send({embed: embed})
