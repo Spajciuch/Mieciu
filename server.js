@@ -272,7 +272,8 @@ if (message.author.bot) return;
   let messageArray = message.content.split(" ");
     let prefix = config.prefix
     let cmd = messageArray[0];
-let args = messageArray.slice(prefix.length);
+var args = message.content.slice(2).trim().split/ +/g);
+var command = args.shift().toLowerCase();
 
 var embd = new Discord.RichEmbed()
   let commandfile = client.commands.get(cmd.slice(prefix.length));
