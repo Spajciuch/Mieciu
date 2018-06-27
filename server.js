@@ -1146,4 +1146,5 @@ const music = new Music(client, {
   djRole: "@everyone"
 });
 
-client.login(config.token);
+
+client.login(process.env.TOKEN)
