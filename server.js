@@ -269,11 +269,11 @@ client.on("message", async message => {
   //================================================================================
    
 if (message.author.bot) return;
+  let messageArray = message.content.split(" ");
     let prefix = config.prefix
     let cmd = messageArray[0];
 let args = messageArray.slice(prefix.length);
-  let messageArray = message.content.split(" ");
-  let cmd = messageArray[0];
+
 var embd = new Discord.RichEmbed()
   let commandfile = client.commands.get(cmd.slice(prefix.length));
 if(commandfile) commandfile.run(client, message, args);
