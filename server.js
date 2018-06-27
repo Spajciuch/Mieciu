@@ -301,43 +301,7 @@ if(command == 'cmd.list'){
  message.channel.send({embed: embd})
 }
 
-  //=================================================================================
-/*if(command == 'settings'){
- let embed = new Discord.RichEmbed()
- .setColor(config.embed_color)
- .setTitle("Ustawienia")
-     database.ref(`/ustawienia/${message.guild.id}/prefix`).once('value')
-  .then(prefix => {
-    database.ref(`/ustawienia/${message.guild.id}/admin`).once('value')
-    .then(admin => {
-      database.ref(`/ustawienia/${message.guild.id}/log`).once('value')
-        .then(log => {
-          database.ref(`/ustawienia/${message.guild.id}/ping`).once('value')
-            .then(ping => {
-             database.ref(`/ustawienia/${message.guild.id}/jest`).once('value')
-    .then(jest => {
-  if(!args[0]) {
-    embed.addField("Komendy Administracyjne", admin.val().replace('false','wyłączone').replace('true','włączone'))
-    embed.addField("Prefix", prefix.val())
-    embed.addField("Pingowanie", ping.val().replace('false','wyłączone').replace('true','włączone'))
-    embed.addField("Logi (wymaga kanału o nazwie logi)",log.val().replace('false','wyłączone').replace('true','włączone'))
-    embed.addField("Wersja Configu", jest.val())
-    embed.setFooter("Domyślne ustawienia")
-    message.channel.send({embed})
-  })})})})})
-}*/
 //==================================================================================
-
-      if(command == 'emoji.list'){
-          const emojiList = message.guild.emojis.map(e=>'\\'+ e.toString()).join(" ");
-          message.channel.send(emojiList);
-        }
-  if(command == 'create.emoji'){
-    if(!message.member.roles.some(r=>["Admin","Administrator", "Moderator", "podkomisarze w Hyrule", "agent FBI w Hyrule", "właściciele", "Administracja"].includes(r.name)))
-      return message.reply("Nie masz uprawnień")
-    return message.reply("Nie masz uprawnień")
-    message.guild.createEmoji(args[0], args[1]) .then(emoji => console.log(`Utworzono nowe emoji na serwerze ${message.guild.name} o nazwie: ${emoji.name}`)) .catch(console.error);
-  }
 if(command == 'profile'){
   let profile = new Discord.RichEmbed()
 }
