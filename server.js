@@ -275,7 +275,7 @@ if (message.author.bot) return;
   let cmd = messageArray[0];
 var embd = new Discord.RichEmbed()
   let commandfile = client.commands.get(cmd.slice(prefix.length));
-if(commandfile) commandfile.run(client, message, args, database);
+if(commandfile) commandfile.run(client, message, args, config);
   if (message.author.bot) return;
   if (message.content.indexOf(config.prefix) !== 0) return;
  
