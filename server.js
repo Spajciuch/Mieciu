@@ -269,15 +269,16 @@ client.on("message", async message => {
   //================================================================================
    
 if (message.author.bot) return;
+   const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
     let prefix = config.prefix
   let messageArray = message.content.split(" ");
   let cmd = messageArray[0];
 var embd = new Discord.RichEmbed()
   let commandfile = client.commands.get(cmd.slice(prefix.length));
-if(commandfile) commandfile.run(client, message, args , database);
+if(commandfile) commandfile.run(client, message, args, database);
   if (message.author.bot) return;
   if (message.content.indexOf(config.prefix) !== 0) return;
-  const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
+ 
   const command = args.shift().toLowerCase();
   if(message.author.bot) return;
 
