@@ -309,6 +309,9 @@ if(command == 'cmd.list'){
 if(command == 'profile'){
   let profile = new Discord.RichEmbed()
 }
+  if(command == 'everyone'){
+    if(message.author.id !== '367390191721381890') return  
+  }
 
   if(command == 'qr') {
     var arg = args.join(" ")
