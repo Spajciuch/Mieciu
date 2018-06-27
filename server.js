@@ -269,6 +269,10 @@ client.on("message", async message => {
   //================================================================================
    
 if (message.author.bot) return;
+    let prefix = config.prefix
+  let messageArray = message.content.split(" ");
+  let cmd = messageArray[0];
+var embd = new Discord.RichEmbed()
   let commandfile = client.commands.get(cmd.slice(oprefix.length));
 if(commandfile) commandfile.run(client, message, args , database);
   if (message.author.bot) return;
@@ -277,10 +281,7 @@ if(commandfile) commandfile.run(client, message, args , database);
   const command = args.shift().toLowerCase();
   if(message.author.bot) return;
 
-  let prefix = config.prefix
-  let messageArray = message.content.split(" ");
-  let cmd = messageArray[0];
-var embd = new Discord.RichEmbed()
+
 if(command == 'cmd.list'){
   fs.readdir(`./commands/`,(err, files)=>{
     if(err) console.log(err)
