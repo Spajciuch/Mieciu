@@ -14,6 +14,18 @@ const hugg = require ('./Giphy/hug.json')
 const patg = require ('./Giphy/pat.json')
 const slapg  = require('./Giphy/slap.json')
 const punchg = require('./Giphy/punch.json')
+const firebase = require('firebase')
+ var fireconfig = {
+    apiKey: "AIzaSyBAdzwXPB-aBcJ8olXHyOXHfbbSYgfcvR4",
+    authDomain: "mieciu-bot.firebaseapp.com",
+    databaseURL: "https://mieciu-bot.firebaseio.com",
+    projectId: "mieciu-bot",
+    storageBucket: "mieciu-bot.appspot.com",
+    messagingSenderId: "357358570823"
+  };
+  firebase.initializeApp(fireconfig);
+  var database = firebase.database();
+
 const Music = require('discord.js-musicbot-addon-v2-pl');
 client.on("guildCreate", guild => {
   // This event triggers when the bot joins a guild.
@@ -293,8 +305,59 @@ if(command == 'cmd.list'){
   })
  message.channel.send({embed: embd})
 }
-  let commandfile = client.commands.get(cmd.slice(prefix.length));
-if(commandfile) commandfile.run(client ,message,args);
+  database.ref(`/ustawienia/${message.guild.id}/jest`).once('value')
+     .then(snapshot => {
+       if(snapshot.val() !== '1') {
+                firebase.database().ref('ustawienia/' + message.guild.id).set({
+    admin: true,
+    log: true,
+    ping: true,   
+    prefix: 'm!',
+    jest: '1'
+  });
+    message.channel.send('Config wygeneowany, aby użyć (`m!settings`)')
+          }
+       })
+    .catch(error => {
+             firebase.database().ref('ustawienia/' + message.guild.id).set({
+     admin: true,
+    log: true,
+    ping: true,   
+    prefix: 'm!',
+    jest: '1'
+  });
+  message.channel.send('Config wygeneowany, aby użyć (`m!settings`)')
+       })
+var oprefix = ''
+if (message.author.bot) return;
+  database.ref(`/ustawienia/${message.guild.id}/prefix`).once('value')
+.then(snapshot => {oprefix = snapshot.val()
+  let commandfile = client.commands.get(cmd.slice(oprefix.length);
+if(commandfile) commandfile.run(client, message, args , database);
+  //=================================================================================
+if(command == 'settings'){
+ let embed = new Discord.RichEmbed()
+ .setColor(config.embed_color)
+ .setTitle("Ustawienia")
+     database.ref(`/ustawienia/${message.guild.id}/prefix`).once('value')
+  .then(prefix => {
+    database.ref(`/ustawienia/${message.guild.id}/admin`).once('value')
+    .then(admin => {
+      database.ref(`/ustawienia/${message.guild.id}/log`).once('value')
+        .then(log => {
+          database.ref(`/ustawienia/${message.guild.id}/ping`).once('value')
+            .then(ping => {
+             database.ref(`/ustawienia/${message.guild.id}/jest`).once('value')
+    .then(jest => {
+  if(!args[0]) {
+    embed.addField("Komendy Administracyjne", admin.val().replace('false','wyłączone').replace('true','włączone'))
+    embed.addField("Prefix", prefix.val())
+    embed.addField("Pingowanie", ping.val().replace('false','wyłączone').replace('true','włączone'))
+    embed.addField("Logi (wymaga kanału o nazwie logi)",log.val().replace('false','wyłączone').replace('true','włączone'))
+    embed.addField("Wersja Configu", jest.val())
+    embed.setFooter("Domyślne ustawienia")
+    message.channel.send({embed})
+}
 //==================================================================================
 
       if(command == 'emoji.list'){
