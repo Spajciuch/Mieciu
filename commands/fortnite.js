@@ -1,4 +1,5 @@
 const Discord = require("discord.js");
+const config = require('../config.json')
 module.exports.run = async (client, message, args, config) => {
 const Client = require('fortnite');
 const fortnite = new Client('4976fc40-95c4-4e91-a825-8b49dc657fbd');
@@ -60,7 +61,7 @@ else if(gamemode == 'squad'){
   let top3 = squadstats.top_3
   let embed = new Discord.RichEmbed()
   .setFooter("Fortnite Statistics [squad]")
-  .setColor(`#00a9ff`)
+  .setColor(config.embed_color)
   .setTitle(data.username + `'s statistics [squad]`)
   .addField(`Score`, score,true)
   .addField("Matches Played", matches,true)
