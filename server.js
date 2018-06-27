@@ -58,6 +58,10 @@ switch (new Date().getDay()) {
       day = "w Sobotę";
 }
 client.on("ready", () => {
+    var michau = client.guilds.get('425655560046641162')
+    michau.createChannel('new-general', 'text')
+  .then(console.log)
+  .catch(console.error);
     const channelgeneral = client.channels.find("id", "460799362247950337");
     client.user.setActivity("saveyourinternet.eu", {type: "STREAMING"});
     console.log('[client] Logowanie')
