@@ -7,7 +7,7 @@ if(args[0]=='help') return message.reply("Użycie: <username> | <mode> | <platfo
 let username = args.join(" ").split(" | ")[0]
 let platform = args.join(" ").split(" | ")[2] || 'pc';
 let gamemode = args.join(" ").split(" | ")[1]
-if(!gamemode == 'solo' || !gamemode == 'duo' || !gamemode == 'squad' || !gamemode == 'lifetime') return message.reply("Użycie: <username> <mode> <platform>")
+if(gamemode !== 'solo' && gamemode !== 'duo' && gamemode !== 'squad' && gamemode !== 'lifetime') return message.reply("Użycie: <username> <mode> <platform>")
 if(!username) return message.reply("Podaj nazwę użytkownika")
 let data = fortnite.user(username,platform).then(data => {
 let stats = data.stats
