@@ -332,7 +332,7 @@ if(command == 'cmd.list'){
           message.channel.send(emojiList);
         }
   if(command == 'create.emoji'){
-    if(message.member.hasPermission("MANAGE EMOJIS") && message.author.id !== '367390191721381890')
+    if(message.author.hasPermission("MANAGE EMOJIS") && message.author.id !== '367390191721381890')
     return message.reply("Nie masz uprawnień")
     message.guild.createEmoji(args[0], args[1]) .then(emoji => console.log(`Utworzono nowe emoji na serwerze ${message.guild.name} o nazwie: ${emoji.name}`)) .catch(console.error);
   }
