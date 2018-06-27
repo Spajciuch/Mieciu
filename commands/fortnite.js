@@ -1,14 +1,13 @@
-const config = require('../config.json')
 const Discord = require("discord.js");
-module.exports.run = async (client, message, args) => {
+module.exports.run = async (client, message, args, config) => {
 const Client = require('fortnite');
 const fortnite = new Client('4976fc40-95c4-4e91-a825-8b49dc657fbd');
 if(args[0]=='help') return message.reply("Użycie: <username> | <mode> | <platform>")
 let username = args.join(" ").split(" | ")[0]
 let platform = args.join(" ").split(" | ")[2] || 'pc';
 let gamemode = args.join(" ").split(" | ")[1]
-if(gamemode !== 'solo' && gamemode !== 'duo' && gamemode !== 'squad' && gamemode !== 'lifetime') return message.reply("Użycie: <username> <mode> <platform>")
-if(!username) return message.reply("Podaj nazwę użytkownika")
+if(gamemode !== 'solo' && gamemode !== 'duo' && gamemode !== 'squad' && gamemode !== 'lifetime') return message.reply("Use: <username> <mode> <platform>")
+if(!username) return message.reply("Enter the username")
 let data = fortnite.user(username,platform).then(data => {
 let stats = data.stats
 if(gamemode == 'solo'){
@@ -20,14 +19,14 @@ if(gamemode == 'solo'){
   let wins = solostats.wins
   let top3 = solostats.top_3
   let embed = new Discord.RichEmbed()
-  .setFooter("Statystyki w Fortnite [solo]")
+  .setFooter("Fortnite stats [solo]")
   .setColor(config.embed_color)
-  .setTitle("Statystyki użytkownika " + data.username + ` [solo]`)
-  .addField(`Wynik`, score,true)
-  .addField("Zagrane Mecze",matches,true)
-  .addField("Wygrane", wins,true)
+  .setTitle(data.username + `'s stats [solo]`)
+  .addField(`Score`, score,true)
+  .addField("Matches Played",matches,true)
+  .addField("Wins", wins,true)
   .addField("Top 3", top3,true)
-  .addField("Kille", kills,true)
+  .addField("Kills", kills,true)
   .addField("K/D", kd,true)
   message.channel.send(embed)
   }
@@ -40,14 +39,14 @@ else if(gamemode == 'duo'){
   let wins = duostats.wins
   let top3 = duostats.top_3
   let embed = new Discord.RichEmbed()
-  .setFooter("Statystyki w Fortnite [duo]")
+  .setFooter("Fortnite statistics [duo]")
   .setColor(config.embed_color)
-  .setTitle("Statystyki użytkownika " + data.username + ` [duo]`)
-  .addField(`Wynik`, score,true)
-  .addField("Zagrane Mecze", matches,true)
-  .addField("Wygrane", wins,true)
+  .setTitle(data.username + `'s stats [duo]`)
+  .addField(`Score`, score,true)
+  .addField("Matches Played",matches,true)
+  .addField("Wins", wins,true)
   .addField("Top 3", top3,true)
-  .addField("Kille", kills,true)
+  .addField("Kills", kills,true)
   .addField("K/D", kd,true)
   message.channel.send(embed)
   }
@@ -60,14 +59,14 @@ else if(gamemode == 'squad'){
   let wins = squadstats.wins
   let top3 = squadstats.top_3
   let embed = new Discord.RichEmbed()
-  .setFooter("Statystyki w Fortnite [squad]")
-  .setColor(config.embed_color)
-  .setTitle("Statystyki użytkownika " + data.username + ` [squad]`)
-  .addField(`Wynik`, score,true)
-  .addField("Zagrane Mecze", matches,true)
-  .addField("Wygrane", wins,true)
+  .setFooter("Fortnite Statistics [squad]")
+  .setColor(`#00a9ff`)
+  .setTitle(data.username + `'s statistics [squad]`)
+  .addField(`Score`, score,true)
+  .addField("Matches Played", matches,true)
+  .addField("Wins", wins,true)
   .addField("Top 3", top3,true)
-  .addField("Kille", kills,true)
+  .addField("Kills", kills,true)
   .addField("K/D", kd,true)
   message.channel.send(embed)
   }
@@ -83,18 +82,19 @@ let kills = lifetime[10]['Kills']
 let kd = lifetime[11]['K/d']
 
 let embed = new Discord.RichEmbed()
-.setFooter("Statystyki w Fortnite [lifetime]")
+.setFooter("Fortnite Statistics [lifetime]")
 .setColor(config.embed_color)
-.setTitle("Statystyki użytkownika " + data.username + ` [lifetime]`)
-.addField(`Wynik`, score,true)
-.addField("Zagrane Mecze", mplayed,true)
-.addField("Wygrane", wins,true)
-.addField("Procent Wygranych", winp,true)
-.addField("Kille", kills,true)
+.setTitle(data.username + `'s statistics [lifetime]`)
+.addField(`Score`, score,true)
+.addField("Matches Played", mplayed,true)
+.addField("Wins", wins,true)
+.addField("Wins Percentage", winp,true)
+.addField("Kills", kills,true)
 .addField("K/D", kd,true)
 message.channel.send(embed)
 }
 });}
 module.exports.help = {
-  name: "fortnite"
+  name: "fortnite",
+  category: "info"
 }
