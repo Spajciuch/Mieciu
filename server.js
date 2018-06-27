@@ -14,17 +14,6 @@ const hugg = require ('./Giphy/hug.json')
 const patg = require ('./Giphy/pat.json')
 const slapg  = require('./Giphy/slap.json')
 const punchg = require('./Giphy/punch.json')
-const firebase = require('firebase')
- var fireconfig = {
-    apiKey: "AIzaSyBAdzwXPB-aBcJ8olXHyOXHfbbSYgfcvR4",
-    authDomain: "mieciu-bot.firebaseapp.com",
-    databaseURL: "https://mieciu-bot.firebaseio.com",
-    projectId: "mieciu-bot",
-    storageBucket: "mieciu-bot.appspot.com",
-    messagingSenderId: "357358570823"
-  };
-  firebase.initializeApp(fireconfig);
-  var database = firebase.database();
 
 const Music = require('discord.js-musicbot-addon-v2-pl');
 client.on("guildCreate", guild => {
@@ -278,30 +267,7 @@ client.on("message", async message => {
   client.channels.get("459772201738960906").edit({name: `Serwery: ${client.guilds.size}`});
   client.channels.get("459772256525221908").edit({name: `Użytkownicy: ${client.users.size}`});
   //================================================================================
-   database.ref(`/ustawienia/${message.guild.id}/jest`).once('value')
-     .then(snapshot => {
-       if(snapshot.val() !== '1') {
-                firebase.database().ref('ustawienia/' + message.guild.id).set({
-    admin: true,
-    log: true,
-    ping: true,   
-    prefix: 'm!',
-    jest: '1'
-  });
-    message.channel.send('Config wygeneowany, aby użyć (`m!settings`)')
-          }
-       })
-    .catch(error => {
-             firebase.database().ref('ustawienia/' + message.guild.id).set({
-     admin: true,
-    log: true,
-    ping: true,   
-    prefix: 'm!',
-    jest: '1'
-  });
-  message.channel.send('Config wygeneowany, aby użyć (`m!settings`)')
-       })
-var oprefix = ''
+   
 if (message.author.bot) return;
   database.ref(`/ustawienia/${message.guild.id}/prefix`).once('value')
 .then(snapshot => {oprefix = snapshot.val()
@@ -313,7 +279,7 @@ if(commandfile) commandfile.run(client, message, args , database);
   const command = args.shift().toLowerCase();
   if(message.author.bot) return;
 
-  let prefix = oprefix
+  let prefix = config.prefix
   let messageArray = message.content.split(" ");
   let cmd = messageArray[0];
 var embd = new Discord.RichEmbed()
@@ -1074,9 +1040,6 @@ if (message.content === 'Mieciu zabij się') {
 
 });
 
-arraySort = require('array-sort'), // This will be used for sorting arrays
-table = require('table'); // This will be used for preparing the output to a table
-send = require('quick.hook'); // This will be used for creating & sending webhooks
 client.on('message', async  message => {
  let args
 
