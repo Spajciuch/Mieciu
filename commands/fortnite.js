@@ -84,7 +84,7 @@ let kd = lifetime[11]['K/d']
 
 let embed = new Discord.RichEmbed()
 .setFooter("Fortnite Statistics [lifetime]")
-.setColor(config.embed_color)
+ .setColor(config.embed_color)
 .setTitle(data.username + `'s statistics [lifetime]`)
 .addField(`Score`, score,true)
 .addField("Matches Played", mplayed,true)
