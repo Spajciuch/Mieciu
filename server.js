@@ -269,8 +269,6 @@ client.on("message", async message => {
   //================================================================================
    
 if (message.author.bot) return;
-  database.ref(`/ustawienia/${message.guild.id}/prefix`).once('value')
-.then(snapshot => {oprefix = snapshot.val()
   let commandfile = client.commands.get(cmd.slice(oprefix.length));
 if(commandfile) commandfile.run(client, message, args , database);
   if (message.author.bot) return;
