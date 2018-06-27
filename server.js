@@ -336,7 +336,7 @@ if(command == 'cmd.list'){
 }
 
   //=================================================================================
-if(command == 'settings'){
+/*if(command == 'settings'){
  let embed = new Discord.RichEmbed()
  .setColor(config.embed_color)
  .setTitle("Ustawienia")
@@ -359,7 +359,7 @@ if(command == 'settings'){
     embed.setFooter("Domyślne ustawienia")
     message.channel.send({embed})
   })})})})})
-}
+}*/
 //==================================================================================
 
       if(command == 'emoji.list'){
