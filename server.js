@@ -358,6 +358,7 @@ if(command == 'settings'){
     embed.addField("Wersja Configu", jest.val())
     embed.setFooter("Domyślne ustawienia")
     message.channel.send({embed})
+  }}}}}
 }
 //==================================================================================
 
