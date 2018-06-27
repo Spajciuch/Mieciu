@@ -4,6 +4,6 @@ const emojiList = message.guild.emojis.map(e=>'\\'+ e.toString()).join(" ");
           message.channel.send(emojiList);
 }
 module.exports.help = {
-  name: "emojilist"
+  name: "emojilist",
   category: "util"
 }
