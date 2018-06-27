@@ -278,34 +278,7 @@ client.on("message", async message => {
   client.channels.get("459772201738960906").edit({name: `Serwery: ${client.guilds.size}`});
   client.channels.get("459772256525221908").edit({name: `Użytkownicy: ${client.users.size}`});
   //================================================================================
-  if (message.author.bot) return;
-  if (message.content.indexOf(config.prefix) !== 0) return;
-  const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
-  const command = args.shift().toLowerCase();
-  if(message.author.bot) return;
-
-  let prefix = config.prefix
-  let messageArray = message.content.split(" ");
-  let cmd = messageArray[0];
-var embd = new Discord.RichEmbed()
-if(command == 'cmd.list'){
-  fs.readdir(`./commands/`,(err, files)=>{
-    if(err) console.log(err)
-    let jsfile = files.filter(f => f.split(".").pop() == "js")
-    jsfile.forEach((f,i)=> {
-      let props = require(`./commands/${f}`)
-      var fls = f + '\n'
-      let embed = new Discord.RichEmbed()
-      embd.setDescription(fls)
-      embd.setColor(config.embed_color)
-      embd.setFooter("Komendy w [osobnych plikach]")
-      
-    })
-     
-  })
- message.channel.send({embed: embd})
-}
-  database.ref(`/ustawienia/${message.guild.id}/jest`).once('value')
+   database.ref(`/ustawienia/${message.guild.id}/jest`).once('value')
      .then(snapshot => {
        if(snapshot.val() !== '1') {
                 firebase.database().ref('ustawienia/' + message.guild.id).set({
@@ -332,8 +305,36 @@ var oprefix = ''
 if (message.author.bot) return;
   database.ref(`/ustawienia/${message.guild.id}/prefix`).once('value')
 .then(snapshot => {oprefix = snapshot.val()
-  let commandfile = client.commands.get(cmd.slice(oprefix.length);
+  let commandfile = client.commands.get(cmd.slice(oprefix.length));
 if(commandfile) commandfile.run(client, message, args , database);
+  if (message.author.bot) return;
+  if (message.content.indexOf(config.prefix) !== 0) return;
+  const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
+  const command = args.shift().toLowerCase();
+  if(message.author.bot) return;
+
+  let prefix = oprefix
+  let messageArray = message.content.split(" ");
+  let cmd = messageArray[0];
+var embd = new Discord.RichEmbed()
+if(command == 'cmd.list'){
+  fs.readdir(`./commands/`,(err, files)=>{
+    if(err) console.log(err)
+    let jsfile = files.filter(f => f.split(".").pop() == "js")
+    jsfile.forEach((f,i)=> {
+      let props = require(`./commands/${f}`)
+      var fls = f + '\n'
+      let embed = new Discord.RichEmbed()
+      embd.setDescription(fls)
+      embd.setColor(config.embed_color)
+      embd.setFooter("Komendy w [osobnych plikach]")
+      
+    })
+     
+  })
+ message.channel.send({embed: embd})
+}
+
   //=================================================================================
 if(command == 'settings'){
  let embed = new Discord.RichEmbed()
