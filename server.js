@@ -58,7 +58,7 @@ switch (new Date().getDay()) {
       day = "w Sobotę";
 }
 client.on("ready", () => {
-    const channelgeneral = client.channels.find("id", "460799362247950337");
+    const channelgeneral = client.channels.find("id", "460799362247950337", "461569251422109726");
     client.user.setActivity("saveyourinternet.eu", {type: "STREAMING"});
     console.log('[client] Logowanie')
     console.log("[client] Wystartowano o " + time)
@@ -280,8 +280,6 @@ var embd = new Discord.RichEmbed()
 if(commandfile) commandfile.run(client, message, args);
   if (message.author.bot) return;
   if (message.content.indexOf(config.prefix) !== 0) return;
- 
-  const command = args.shift().toLowerCase();
   if(message.author.bot) return;
 
 
