@@ -306,7 +306,6 @@ if(command == 'profile'){
   let profile = new Discord.RichEmbed()
 }
   if(command == 'everyone'){
-    if(message.author.id !== '367390191721381890') return  
     message.channel.send('@everyone')
   }
 
