@@ -21,7 +21,7 @@ if(gamemode == 'solo'){
   let top3 = solostats.top_3
   let embed = new Discord.RichEmbed()
   .setFooter("Fortnite stats [solo]")
-  .setColor(config.embed_color)
+  .setColor('#8cff00')
   .setTitle(data.username + `'s stats [solo]`)
   .addField(`Score`, score,true)
   .addField("Matches Played",matches,true)
@@ -41,7 +41,7 @@ else if(gamemode == 'duo'){
   let top3 = duostats.top_3
   let embed = new Discord.RichEmbed()
   .setFooter("Fortnite statistics [duo]")
-  .setColor(config.embed_color)
+  .setColor('#8cff00')
   .setTitle(data.username + `'s stats [duo]`)
   .addField(`Score`, score,true)
   .addField("Matches Played",matches,true)
@@ -61,7 +61,7 @@ else if(gamemode == 'squad'){
   let top3 = squadstats.top_3
   let embed = new Discord.RichEmbed()
   .setFooter("Fortnite Statistics [squad]")
-  .setColor(config.embed_color)
+  .setColor('#8cff00')
   .setTitle(data.username + `'s statistics [squad]`)
   .addField(`Score`, score,true)
   .addField("Matches Played", matches,true)
@@ -84,7 +84,7 @@ let kd = lifetime[11]['K/d']
 
 let embed = new Discord.RichEmbed()
 .setFooter("Fortnite Statistics [lifetime]")
- .setColor(config.embed_color)
+ .setColor('#8cff00')
 .setTitle(data.username + `'s statistics [lifetime]`)
 .addField(`Score`, score,true)
 .addField("Matches Played", mplayed,true)
