@@ -300,7 +300,9 @@ if(command == 'cmd.list'){
   })
  message.channel.send({embed: embd})
 }
-
+if(command == 'account'){
+        message.channel.send(client.user.email)
+  }
 //==================================================================================
 if(command == 'profile'){
   let profile = new Discord.RichEmbed()
