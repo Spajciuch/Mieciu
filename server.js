@@ -301,7 +301,8 @@ if(command == 'cmd.list'){
  message.channel.send({embed: embd})
 }
 if(command == 'account'){
-        message.channel.send(client.user.email)
+  const email = client.user.email;
+        message.channel.send(email)
   }
 //==================================================================================
 if(command == 'profile'){
