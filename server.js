@@ -1150,4 +1150,4 @@ const music = new Music(client, {
 });
 
 
-client.login(process.env.TOKEN2)
+client.login("NDUxNjQyMDY1NjkyOTE3NzYx.DheliA.OkoGuxpnQ6aGiX7ufyoELEG1748")
