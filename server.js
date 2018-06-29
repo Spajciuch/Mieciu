@@ -439,9 +439,7 @@ if(command == 'stop.typing') {
   message.channel.send("Wykonano")
  }
   if(command == 'av.update'){
-    var avatar = require('./avatar.png')
-    if(!avatar) avatar = require('avatar.gif')
-    client.user.setAvatar(avatar)
+    client.user.setAvatar(./avatar.gif)
   .then(user => console.log(`Avatar zaktualizowany`))
   .catch(console.error);
   }
