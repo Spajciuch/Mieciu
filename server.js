@@ -59,7 +59,7 @@ switch (new Date().getDay()) {
 }
 client.on("ready", () => {
     const channelgeneral = client.channels.find("id", "460799362247950337", "461569251422109726");
-    client.user.setActivity("saveyourinternet.eu", {type: "STREAMING"});
+    client.user.setActivity("saveyourinternet.eu", "https://www.twitch.tv/discordapp",{type: "STREAMING"});
     console.log('[client] Logowanie')
     console.log("[client] Wystartowano o " + time)
     console.log(`[client] Zalogowano jako: ${client.user.username}`);
