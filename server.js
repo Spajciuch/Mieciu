@@ -285,53 +285,10 @@ if(commandfile) commandfile.run(client, message, args);
   if (message.content.indexOf(config.prefix) !== 0) return;
   if(message.author.bot) return;
 
-
-if(command == 'cmd.list'){
-  fs.readdir(`./commands/`,(err, files)=>{
-    if(err) console.log(err)
-    let jsfile = files.filter(f => f.split(".").pop() == "js")
-    jsfile.forEach((f,i)=> {
-      let props = require(`./commands/${f}`)
-      var fls = f + '\n'
-      let embed = new Discord.RichEmbed()
-      embd.setDescription(fls)
-      embd.setColor(config.embed_color)
-      embd.setFooter("Komendy w [osobnych plikach]")
-      
-    })
-     
-  })
- message.channel.send({embed: embd})
-}
-if(command == 'account'){
-  const email = client.user.email;
-        message.channel.send(email)
-  }
 //==================================================================================
-if(command == 'profile'){
-  let profile = new Discord.RichEmbed()
-}
-  if(command == 'everyone'){
-    message.channel.send('@everyone')
-  }
 
-  if(command == 'qr') {
-    var arg = args.join(" ")
-    var qr = require('qr-image');
 
-    var qr_svg = qr.image(arg, {
-      type: 'png'
-    });
-    qr_svg.pipe(require('fs').createWriteStream(args.join("-").replace(/\//g, 'slash').replace(/\./g, 'dot') + '.png'));
-
-    var svg_string = qr.imageSync(arg, {
-      type: 'png'
-    });
-    message.channel.send('Gotowe', {
-      file: args.join("-").replace(/\//g, 'slash').replace(/\./g, 'dot') + '.png'
-    })
-  }
-  if(command == 'note'){
+/*  if(command == 'note'){
 
     var a = Math.floor(Math.random() *9) + 1
     var b = Math.floor(Math.random() *9) + 1
@@ -353,21 +310,15 @@ if(command == 'get.note') {
     message.channel.send({embed: note})
   })
 }
-/*if(command =='changelog') {
+if(command =='changelog') {
   var change = require ('./Notes/changelog.json')
   let changelog = new Discord.RichEmbed()
   .setColor(config.embed_color)
   .addField("Changelog Miecia", `Wersja: ${change.version}\nNazwa update: ${change.update}\nOpis: ${change.description}`)
   .setThumbnail("https://cdn.discordapp.com/avatars/423196130508275716/65a17d5274f3db851ef9ab5f3ed13ea1.png?size=2048");
   message.channel.send({embed: changelog})
-}*/
-  if(command == 'save'){
-
-  fs.writeFile('./Serwery/message.txt', 'Hello Node.js', (err) => {
-    if (err) throw err;
-
-  });
-}//===================================================================
+}*//===================================================================
+  
   if (command === 'pickle') {
     let member = args[0];
     if (!member) {
