@@ -11,6 +11,7 @@ module.exports.run = async (client, message, args) => {
       .setColor(config.embed_color)
       message.channel.send({embed})
       }
+})
 mudule.exports.help = {
   name: "eval"
 }
