@@ -12,6 +12,6 @@ module.exports.run = async (client, message, args) => {
       message.channel.send({embed})
   
 }
-mudule.exports.help = {
+module.exports.help = {
   name: "eval"
 }
