@@ -2,11 +2,11 @@ const Discord = require("discord.js");
 const config = require(`../config.json`)
 module.exports.run = async (client, message, args) => {
   
-  let pages = ['This is page one!', 'Second page', 'Third', 'You can add pages', 'All you need to do is add another item in the array', '**Supports markdown and regular chat description properties**']; 
+  let pages = [`**Prefix: m!**\nMasz jakieś problemy?, Wbij na serwer pomocy -> https://discord.gg/jjNfaHM`, '**Komendy Administarcyjne**\nset.channel.name\nid.ban\ncreate.channel\nset.icon\nset.server.name\nset-ver-lvl\ncreate.role\nrole.color\nban\nkick\nset.topic\nclear', '**Komendy Użytkowe**\nmail\ncolor\nweather\ngif\nping\nserver.info\nivona\nsupportet.languages\ntranslate [text] | [Język, np, EN]\nnote\nget.note[kod]\nqr', '**Komendy Do zabawy**\nachievement\nreverse\nstart.typing\nstop.typing\n8ball\nchoose\navatar\nos.ping\nsay\nascii\nhug\npat\nslap\npunch\nlenny\nlennyd\nshrug\nshrugd', '**Picie**\nredwine\nwhitewine\nadvocat\nwhiskey\nbeer\nvodka\nsake\ncoffee\ntea\nglass_of_milk\napple_juice', '**Jedzenie**\nwaffles\nwatermelon\napple\npancakes\ngrape\nlemon\npineapple\nmelon\ntangerine\nbanana\ncookie\nxanax', '**Muzyka**\nmusichelp']; 
   let page = 1; 
  
   const embed = new Discord.RichEmbed() 
-    .setColor(0xffffff)
+    .setColor(config.embed_color)
     .setFooter(`Page ${page} of ${pages.length}`) 
     .setDescription(pages[page-1])
  
@@ -26,7 +26,7 @@ module.exports.run = async (client, message, args) => {
         if (page === 1) return; 
         page--; 
         embed.setDescription(pages[page-1]); 
-        embed.setFooter(`Page ${page} of ${pages.length}`); 
+        embed.setFooter(`Strona ${page} z ${pages.length}`); 
         msg.edit(embed) 
       })
      
@@ -34,7 +34,7 @@ module.exports.run = async (client, message, args) => {
         if (page === pages.length) return; 
         page++; 
         embed.setDescription(pages[page-1]); 
-        embed.setFooter(`Page ${page} of ${pages.length}`); 
+        embed.setFooter(`Strona ${page} z ${pages.length}`); 
         msg.edit(embed) 
       })
    
@@ -43,5 +43,5 @@ module.exports.run = async (client, message, args) => {
   })
 }
 module.exports.help = {
-  name: "pages"
+  name: "help"
 }
