@@ -18,8 +18,8 @@ module.exports.run = async (client, message, args) => {
       const backwardsFilter = (reaction, user) => reaction.emoji.name === '⏪' && user.id === message.author.id;
       const forwardsFilter = (reaction, user) => reaction.emoji.name === '⏩' && user.id === message.author.id; 
      
-      const backwards = msg.createReactionCollector(backwardsFilter, { time: 60000 }); 
-      const forwards = msg.createReactionCollector(forwardsFilter, { time: 60000 }); 
+      const backwards = msg.createReactionCollector(backwardsFilter); 
+      const forwards = msg.createReactionCollector(forwardsFilter); 
      
       
       backwards.on('collect', r => { 
