@@ -1,11 +1,10 @@
 const Discord = require("discord.js");
 const config = require(`../config.json`)
 module.exports.run = async (client, message, args) => {
-  message.channel.createWebhook(args.join(" ").split(" | ")[0],args.join(" ").split(" | ")[1])
-
-.then(webhook => webhook.edit(args.join(" ").split(" | ")[0], args.join(" ").split(" | ")[1])
-.then(wb => message.author.send(`Twój webhook: https://canary.discordapp.com/api/webhooks/${wb.id}/${wb.token}`)).catch(console.error))
+ message.channel.createWebhook("TestHook", "https://cdn.steemitimages.com/DQmdBKEXjvjSBW7JCLVRKqdYPGzCFQSRTmLY3yoBNUtEzb1/Test-Logo-Small-Black-transparent-1.png")
+.then(webhook => webhook.edit("TestHook", "https://cdn.steemitimages.com/DQmdBKEXjvjSBW7JCLVRKqdYPGzCFQSRTmLY3yoBNUtEzb1/Test-Logo-Small-Black-transparent-1.png")
+.then(wb => message.author.send(`Twój WebHook https://canary.discordapp.com/api/webhooks/${wb.id}/${wb.token}`)).catch(console.error))
 }
 module.exports.help = {
-  name: "newwebhook"
+  name: "testhook"
 }
