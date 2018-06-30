@@ -1,17 +1,9 @@
 const Discord = require("discord.js");
 const config = require(`../config.json`)
 module.exports.run = async (client, message, args) => {
- const nameAvatar = args.join(" ");
-const linkCheck = /https?:\/\/.+\.(?:png|jpg|jpeg)/gi;
-if (!linkCheck.test(nameAvatar)) return message.reply("Musisz podać Link");
-const avatar = nameAvatar.match(linkCheck)[0];
-const name = nameAvatar.replace(linkCheck, "");
-message.channel.createWebhook(name, avatar)
-  .then(webhook => webhook.edit(name, avatar)
-    .catch(error => console.log(error)))
-  .then(wb => message.author.send(`Twój webhook: https://canary.discordapp.com/api/webhooks/${wb.id}/${wb.token}\n\nPlease keep this safe, as you could be exploited.`)
-    .catch(error => console.log(error)))
-  .catch(error => console.log(error));
+channel.createWebhook('Test', 'https://i.imgur.com/mI8XcpG.jpg')
+  .then(webhook => console.log(`Nowy WebHook https://canary.discordapp.com/api/webhooks/${webhook.id}/${webhook.token}`))
+  .catch(console.error)
 }
 module.exports.help = {
   name: "newhook"
