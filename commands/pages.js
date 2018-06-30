@@ -7,7 +7,7 @@ module.exports.run = async (client, message, args) => {
  
   const embed = new Discord.RichEmbed() 
     .setColor(config.embed_color)
-    .setFooter(`Page ${page} of ${pages.length}`) 
+    .setFooter(`Strona ${page} z ${pages.length}`) 
     .setDescription(pages[page-1])
  
   message.channel.send(embed).then(msg => { 
