@@ -317,7 +317,7 @@ if(command =='changelog') {
   .addField("Changelog Miecia", `Wersja: ${change.version}\nNazwa update: ${change.update}\nOpis: ${change.description}`)
   .setThumbnail("https://cdn.discordapp.com/avatars/423196130508275716/65a17d5274f3db851ef9ab5f3ed13ea1.png?size=2048");
   message.channel.send({embed: changelog})
-}*//===================================================================
+}*///===================================================================
   
   if (command === 'pickle') {
     let member = args[0];
