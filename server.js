@@ -436,7 +436,7 @@ if(command == 'avatar'){
     if(message.mentions.members.first()) {
       let avatar = new Discord.RichEmbed()
       .setColor(config.embed_color)
-      .addField("Avatar użytkownika " + message.mentions.members.first().user.username)
+      .setTitle("Avatar użytkownika " + message.mentions.members.first().user.username)
       .setImage(message.mentions.members.first().user.avatarURL)
 
 
