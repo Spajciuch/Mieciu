@@ -5,9 +5,9 @@ const DiscordTools = require('discordtools');
 const tools = new DiscordTools(process.env.TOKEN);
  
 tools.unban(message.guild.id, args[0]).then(b => {
-    console.log(b);
+    message.channel.send(`Odbanowano ${b.user.tag}`)
 });
 }
 module.exports.help = {
-  name: "gldc"
+  name: "unban"
 }
