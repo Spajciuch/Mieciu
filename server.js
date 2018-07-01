@@ -1081,7 +1081,7 @@ client.on('message', async  message => {
 const music = new Music(client, {
    prefix: config.prefix,
   youtubeKey: config.yt,
-  embedColor: 9240320,
+  embedColor: 7506394,
   enableQueueStat: true,
   botAdmins: [316226442721755137, 367390191721381890],
   clearOnLeave: true,
