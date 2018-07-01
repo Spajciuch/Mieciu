@@ -3,9 +3,9 @@ const snek = require('snekfetch');
 const moment = require('moment');
 require('moment-duration-format')
 var config = require('../config.json');
-module.exports.run = async (client message, args) => {
+module.exports.run = async (client, message, args) => {
 
-if (args.length === 0) return message.reply('You must supply a search term.');
+if (args.length === 0) return message.reply('Podaj nazwę paczki npm do wyszukania');
 const query = args.join(' ');
 try {
 const { body } = await snek.get(`https://registry.npmjs.com/${query.toLowerCase()}`);
