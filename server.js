@@ -607,7 +607,7 @@ if(command == 'test') {
 var giphy = require('giphy-api')("IL0Gy0XLlUmTTaAIQkF3wWiItrT8ijhZ");
 //Czynności? ================================================================================
 const GiphyRandom = require('giphy-random');
-const giphyRandom = new GiphyRandom({ apiKey: 'IL0Gy0XLlUmTTaAIQkF3wWiItrT8ijhZ' });
+const giphyRandom = new GiphyRandom({ apiKey: config.giphy});
 if(command == 'gif'){
 
 giphyRandom.get({ tag: args.join(" ")})
@@ -619,7 +619,7 @@ giphyRandom.get({ tag: args.join(" ")})
     let person = args.join(" ")
    let hug = new Discord.RichEmbed()
     .setColor(config.embed_color)
-   .addField("Hug",message.author.username.toString() + " przytulił " + message.mentions.members.first().user.username )
+   .setTitle(message.author.username.toString() + " przytulił " + message.mentions.members.first().user.username )
    giphyRandom.get({ tag: 'hug'})
    .then(data => embed.setImage(`https://media.giphy.com/media/${data.id}/giphy.gif`))
    .catch(e => console.error(e.message));
@@ -632,13 +632,12 @@ else {
   let person = args.join(" ")
   let hug = new Discord.RichEmbed()
    .setColor(config.embed_color)
-  .addField("Hug",message.author.username.toString() + " przytulił " + person)
+  .setTitle(message.author.username.toString() + " przytulił " + person)
   .setImage(hugg[odp-1]);
     message.channel.send({
      embed: hug
    });
 
-}
 }
   if(command === 'pat')
   {
@@ -647,7 +646,7 @@ else {
     let person = args.join(" ")
    let pat = new Discord.RichEmbed()
     .setColor(config.embed_color)
-   .addField("Pat Pat", message.author.username.toString() + " patnął " + message.mentions.members.first().user.username )
+   .setTitle(message.author.username.toString() + " patnął " + message.mentions.members.first().user.username )
    .setImage(patg[odp-1]);
      message.channel.send({
       embed: pat
@@ -658,7 +657,7 @@ else {
   let person = args.join(" ")
   let pat = new Discord.RichEmbed()
    .setColor(config.embed_color)
-  .addField("Pat Pat",message.author.username.toString() + " patnął "  + person)
+  .setTitle(message.author.username.toString() + " patnął "  + person)
   .setImage(patg[odp-1]);
     message.channel.send({
      embed: pat
@@ -672,7 +671,7 @@ else {
     let person = args.join(" ")
    let slap = new Discord.RichEmbed()
     .setColor(config.embed_color)
-   .addField("Slap",message.author.username.toString() + " slapnął " + message.mentions.members.first().user.username)
+   .setTitle(message.author.username.toString() + " slapnął " + message.mentions.members.first().user.username)
    .setImage(slapg[odp-1]);
      message.channel.send({
       embed: slap
@@ -684,7 +683,7 @@ else {
   let person = args.join(" ")
 let slap = new Discord.RichEmbed()
  .setColor(config.embed_color)
-.addField("Slap",message.author.username.toString() + " slapnął " + person)
+.setTitle(message.author.username.toString() + " slapnął " + person)
 .setImage(slapg[odp-1]);
   message.channel.send({
    embed: slap
@@ -698,7 +697,7 @@ let slap = new Discord.RichEmbed()
     let person = args.join(" ")
    let punch = new Discord.RichEmbed()
     .setColor(config.embed_color)
-   .addField("Punch",message.author.username.toString() + " przypierdolił " + message.mentions.members.first().user.username)
+   .setTitle(message.author.username.toString() + " przypierdolił " + message.mentions.members.first().user.username)
    .setImage(punchg[odp-1]);
      message.channel.send({
       embed: punch
@@ -709,7 +708,7 @@ else {
     let person = args.join(" ")
    let punch = new Discord.RichEmbed()
     .setColor(config.embed_color)
-   .addField("Punch",message.author.username.toString() + " przypierdolił " + person)
+   .setTitle(message.author.username.toString() + " przypierdolił " + person)
    .setImage(punchg[odp-1]);
      message.channel.send({
       embed: punch
