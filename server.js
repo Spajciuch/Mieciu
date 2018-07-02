@@ -270,7 +270,7 @@ client.on("message", async message => {
   client.channels.get("459772201738960906").edit({name: `Serwery: ${client.guilds.size}`});
   client.channels.get("459772256525221908").edit({name: `Użytkownicy: ${client.users.size}`});
   //================================================================================
-   
+
 if (message.author.bot) return;
   let messageArray = message.content.split(" ");
     let prefix = config.prefix
@@ -318,7 +318,7 @@ if(command =='changelog') {
   .setThumbnail("https://cdn.discordapp.com/avatars/423196130508275716/65a17d5274f3db851ef9ab5f3ed13ea1.png?size=2048");
   message.channel.send({embed: changelog})
 }*///===================================================================
-  
+
   if (command === 'pickle') {
     let member = args[0];
     if (!member) {
@@ -616,15 +616,13 @@ giphyRandom.get({ tag: args.join(" ")})
 }
   if(command === 'hug')
   {
-
-    if(message.mentions.members.first()) {
-      var odp = Math.floor(Math.random() *7) + 1
-
     let person = args.join(" ")
    let hug = new Discord.RichEmbed()
     .setColor(config.embed_color)
    .addField("Hug",message.author.username.toString() + " przytulił " + message.mentions.members.first().user.username )
-   .setImage(hugg[odp-1]);
+   giphyRandom.get({ tag: 'hug'})
+   .then(data => embed.setImage(`https://media.giphy.com/media/${data.id}/giphy.gif`))
+   .catch(e => console.error(e.message));
      message.channel.send({
       embed: hug
     });
