@@ -616,6 +616,7 @@ giphyRandom.get({ tag: args.join(" ")})
 }
   if(command === 'hug')
   {
+    var odp = Math.floor(Math.random() *7) + 1
     let person = args.join(" ")
     if(message.mentions.members.first()) {
    let hug = new Discord.RichEmbed()
