@@ -617,27 +617,23 @@ giphyRandom.get({ tag: args.join(" ")})
   if(command === 'hug')
   {
     let person = args.join(" ")
+    if(message.mentions.members.first()) {
    let hug = new Discord.RichEmbed()
     .setColor(config.embed_color)
    .setTitle(message.author.username.toString() + " przytulił " + message.mentions.members.first().user.username )
-   giphyRandom.get({ tag: 'hug'})
-   .then(data => embed.setImage(`https://media.giphy.com/media/${data.id}/giphy.gif`))
-   .catch(e => console.error(e.message));
+  .setImage(hugg[odp-1]);
      message.channel.send({
       embed: hug
     });
-  }
-else {
+  } else {
   var odp = Math.floor(Math.random() *7) + 1
   let person = args.join(" ")
   let hug = new Discord.RichEmbed()
    .setColor(config.embed_color)
   .setTitle(message.author.username.toString() + " przytulił " + person)
   .setImage(hugg[odp-1]);
-    message.channel.send({
-     embed: hug
-   });
-
+    message.channel.send({embed: hug});
+}
 }
   if(command === 'pat')
   {
