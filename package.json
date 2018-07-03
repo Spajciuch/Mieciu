@@ -57,6 +57,7 @@
     "ytsearcher" : "1.0.3",
     "firebase": "5.1.0",
     "discordtools" : "1.0.54",
-    "snekfetch" : "4.0.4"
+    "snekfetch" : "4.0.4",
+    "computer-info": "0.1.1"
   }
 }

@@ -463,16 +463,12 @@ if(command == 'avatar'){
   }
 
   if(command == 'info') {
-  var memory = os.totalmem() / 1000000000
-  var all_memory = Math.round(memory)
-  var freememory = os.freemem() / 1000000000
-  var all_freememory = Math.round(freememory)
-
+    const sys = require('computer-info')
    let info = new Discord.RichEmbed()
    .setAuthor("Informacje o bocie")
    .setColor(config.embed_color)
    .addField("Bot obsługuje ", `${client.users.size} osób, ${client.channels.size} kanałów, ${client.guilds.size} serwerów`)
-   .addField("Informacje o systemie", `**Bot działa na:** ${os.hostname()}\n**System:** ${os.type()}\n**Procesor:** Intel(R) Xeon(R) CPU E5-2670 v2 @ 2.50GHz (${os.arch()}) \n**Pamięć RAM:** ${all_memory} GB (wolna: ${all_freememory} GB)\n**Wersja Node:** 10.2.1`)
+   .addField("Informacje o systemie", `**Bot działa na:** ${sys().name}\n**System:** ${sys().osystem}\n**Procesor:** ${sys().cpu} (${sys().arch}) \n**Pamięć RAM:** ${sys().rma} GB (wolna: ${sys().freeram} GB)\n**Node:** ${sys().node}`)
    .addField("Ścieżka do pliku", `**Bot znajduje się w folderze:** ${__dirname}\n**Plik Główny:** ${__filename}`)
    .addField("Bot został włączony",` ${day} o ${time}`)
    message.channel.send({embed: info})
