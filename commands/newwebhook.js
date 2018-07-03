@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 module.exports.run = async (client, message, args) => {
-channel.createWebhook('Test', 'https://cfr.slack-edge.com/ae7f/img/services/outgoing-webhook_512.png')
+channel.createWebhook(args.join(" ").split(" | ")[0], args.join(" ").split(" | ")[1])
   .then(webhook => console.log(`Nowy WebHook https://canary.discordapp.com/api/webhooks/${webhook.id}/${webhook.token}`))
   .catch(console.error)
 }
