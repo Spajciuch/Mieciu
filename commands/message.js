@@ -8,7 +8,7 @@
     message.channel.fetchMessage(args[0])
       .then(msg => {
         let embed = new Discord.RichEmbed()
-        .setAthor(msg.author.username, msg.author.avatarURL)
+        .setAuthor(msg.author.tag, msg.author.avatarURL)
         .setDescription(msg.content)
         .setFooter(msg.createdTimestamp)
         message.channel.send({embed})
