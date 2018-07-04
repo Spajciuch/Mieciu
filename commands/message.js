@@ -10,7 +10,7 @@
         .setColor(config.embed_color)
         .setAuthor(msg.author.tag, msg.author.avatarURL)
         .setDescription(msg.content)
-        .setFooter(moment.utc(msg.createdAt).format('DD.MM.YYYY'))
+        .setFooter(moment.utc(msg.createdAt).format('DD.MM.YYYY | hh:mm'))
         message.channel.send({embed})
       })
   }
