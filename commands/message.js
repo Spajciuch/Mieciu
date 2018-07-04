@@ -11,7 +11,7 @@
         embed.setDescription(msg.content)
         embed.setFooter(msg.createdTimestamp)
         message.channel.send({embed})
-      }
+      })
   }
   module.exports.help = {
       name: "getmsg"
