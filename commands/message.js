@@ -7,7 +7,7 @@
     .setColor(config.embed_color)
     message.channel.fetchMessage(args[0])
       .then(msg => {
-        embed.setAthor(msg.author.tag, msg.author.avatarURL))
+        embed.setAthor(msg.author.tag, msg.author.avatarURL)
         embed.setDescription(msg.content)
         embed.setFooter(msg.createdTimestamp)
         message.channel.send({embed})
