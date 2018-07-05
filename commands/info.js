@@ -1,6 +1,32 @@
 const Discord = require("discord.js");
 const config = require(`../config.json`)
 module.exports.run = async (client, message, args) => {
+var d = new Date()
+var hour = d.getHours() +2
+var minute = d.getMinutes()
+var minute = `${minute}`.padStart(2, 0)
+var time = hour + ":" + minute
+switch (new Date().getDay()) {
+  case 0:
+      day = " w Niedzielę";
+      break;
+  case 1:
+      day = "w Poniedziałek";
+      break;
+  case 2:
+      day = "we Wtorek";
+      break;
+  case 3:
+      day = "w Środę";
+      break;
+  case 4:
+      day = "w Czwartek";
+      break;
+  case 5:
+      day = "w Piątek";
+      break;
+  case 6:
+      day = "w Sobotę";
 	    const sys = require('computer-info')
    let info = new Discord.RichEmbed()
    .setAuthor("Informacje o bocie")
