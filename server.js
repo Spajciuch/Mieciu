@@ -267,7 +267,7 @@ client.on("message", async message => {
   client.channels.get("459772256525221908").edit({name: `Użytkownicy: ${client.users.size}`});
   client.channels.get("464340088613109760").edit({name: `Uptime: ${ms(client.uptime)}`})
   //================================================================================
-
+  if(!message.content.startsWith(config.prefix)) return;
 if (message.author.bot) return;
   let messageArray = message.content.split(" ");
     let prefix = config.prefix
