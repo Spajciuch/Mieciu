@@ -10,6 +10,7 @@ module.exports.run = async (client, message, args) => {
     message.channel.send(kto +' '+ i + '/' + ile);
 
 }
+}
 module.exports.help = {
 	name: "pingg"
 }
