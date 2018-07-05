@@ -1,5 +1,6 @@
 const Discord = require("discord.js");
 const config = require(`../config.json`)
+const ms = require('ms')
 module.exports.run = async (client, message, args) => {
 var d = new Date()
 var hour = d.getHours() +2
