@@ -269,6 +269,7 @@ client.on("message", async message => {
   client.channels.get("459762461369827362").edit({name: `Użytkownicy: ${client.users.size}`});
   client.channels.get("459772201738960906").edit({name: `Serwery: ${client.guilds.size}`});
   client.channels.get("459772256525221908").edit({name: `Użytkownicy: ${client.users.size}`});
+  client.channels.get("464340088613109760").edit({name: `Uptime: ${ms(client.uptime)}`})
   //================================================================================
 
 if (message.author.bot) return;
@@ -463,6 +464,7 @@ if(command == 'avatar'){
   }
 
   if(command == 'info') {
+    const ms = require('ms')
     const sys = require('computer-info')
    let info = new Discord.RichEmbed()
    .setAuthor("Informacje o bocie")
@@ -471,6 +473,7 @@ if(command == 'avatar'){
    .addField("Informacje o systemie", `**Bot działa na:** ${sys().name}\n**System:** ${sys().osystem}\n**Procesor:** ${sys().cpu} (${sys().arch}) \n**Pamięć RAM:** ${sys().ram} GB (wolna: ${sys().freeram} GB)\n**Node:** ${sys().node}`)
    .addField("Ścieżka do pliku", `**Bot znajduje się w folderze:** ${__dirname}\n**Plik Główny:** ${__filename}`)
    .addField("Bot został włączony",` ${day} o ${time}`)
+   .addField("Czas działania", ms(client.uptime))
    message.channel.send({embed: info})
   }
     if (command === "kick") {
