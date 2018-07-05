@@ -312,7 +312,7 @@ if(command == 'get.note') {
   })
 }
 */
-
+});
 //=================================================================================
 const music = new Music(client, {
    prefix: config.prefix,
@@ -323,7 +323,7 @@ const music = new Music(client, {
   clearOnLeave: true,
   disableVolume: true,
   djRole: "@everyone"
-});
 
+});
 
 client.login(process.env.TOKEN)
