@@ -70,10 +70,6 @@ client.on("ready", () => {
     .addField("Data", `${d.getDate()}.${d.getMonth()+1}.${d.getFullYear()}`)
     .setColor(config.embed_color)
     channelgeneral.send({embed})
-    client.user.setEmail('mieciumail@gmail.com', 'FajnyMieciu1234')
-  .then(user => console.log(`My new email is ${user.email}`))
-  .catch(console.error);
-  //\x1b[36m%s\x1b[0m
 });
 client.on("messageUpdate", (oldMessage, newMessage) => {
   if(!oldMessage.guild) return
