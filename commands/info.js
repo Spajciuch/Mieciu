@@ -27,6 +27,7 @@ switch (new Date().getDay()) {
       break;
   case 6:
       day = "w Sobotę";
+}
 	    const sys = require('computer-info')
    let info = new Discord.RichEmbed()
    .setAuthor("Informacje o bocie")
