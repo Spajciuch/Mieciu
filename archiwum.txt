@@ -1,0 +1,338 @@
+if (command == 'm!lenny') {
+  message.channel.send('( ͡° ͜ʖ ͡°)');
+
+}
+if (command == 'lennyd') {
+  message.channel.send('( ͡° ͜ʖ ͡°)');
+   message.delete().catch(O_o => {});
+}
+//Komendy dla Damianq ================================================================================
+if (command == 'grzecznysynke') {
+  message.channel.send('(ⱺヮⱺ) <@!367390191721381890>\n(ⱺヮⱺ) <@!407637715895713800>');
+
+}
+if (command == 'grzecznacórke') {
+  message.channel.send('(ⱺヮⱺ) <@!365820519276085248>\n(ⱺヮⱺ) <@!368855946459349002>\n(ⱺヮⱺ) <@!376453273563037696>\n(ⱺヮⱺ) <@!359348136558198785>\n(ⱺヮⱺ) <@!364482399913902090> ');
+                                                                                                                                                                                                                                    364482399913902090
+}
+if (command == 'najlepsza-mamke') {
+  message.channel.send('(ⱺヮⱺ) <@!278261584172810241>');
+}
+//JEDZENIE ================================================================================
+
+if (command == 'whitewine') {
+  message.reply('🍾 Oczywiście, białe winko  dla Ciebie (｡◕‿◕｡)');
+}
+if (command == 'beer') {
+  message.reply('🍺 Już się robi. Piwerko dla Ciebie (｡◕‿◕｡)');
+}
+if (command == 'whiskey') {
+  message.reply('🥃 Whiskey specjalnie dla Ciebie (｡◕‿◕｡)');
+}
+if (command == 'advocat') {
+  message.reply('🥃 Advocat już gotowy (｡◕‿◕｡)');
+}
+if (command == 'vodka') {
+  message.reply('🥃 Już. Wódka specjalnie dla Ciebie (｡◕‿◕｡)');
+}
+if (command == 'redwine') {
+  message.reply('🍷 Czerwone winko dla Ciebie (｡◕‿◕｡)');
+}
+if (command == 'apple_juice') {
+  message.reply('🥤 Soczek dla Ciebie (｡◕‿◕｡)');
+}
+if (command== 'watermelon') {
+  message.reply('🍉 Arbuzik dla Ciebie (｡◕‿◕｡)');
+}
+ if (command == 'coffee') {
+  message.reply('☕ Kawusia dla Ciebie (｡◕‿◕｡)');
+}
+if (command == 'tea') {
+  message.reply('🍵 Herbatka dla Ciebie (｡◕‿◕｡)');
+}
+if (command == 'sake') {
+  message.reply('🍶 Sake dla Ciebie (｡◕‿◕｡)');
+}
+if (command == 'cookie') {
+  message.reply('🍪 Ciasteeeczko. Świeżo upieczone (｡◕‿◕｡)');
+}
+if (command == 'glass_of_milk') {
+  message.reply('🥛 Mleczko dla Ciebie (｡◕‿◕｡)');
+}
+if (command == 'apple') {
+  message.reply('🍎 Jabłko dla Ciebie (｡◕‿◕｡)');
+}
+if (command == 'pancakes') {
+  message.reply('🥞 Naleśniki dla Ciebie (｡◕‿◕｡)');
+}
+if (command == 'grapes') {
+  message.reply('🍇 Winogronka dla Ciebie (｡◕‿◕｡)');
+}
+if (command == 'melon') {
+  message.reply('🍈 Melonik (｡◕‿◕｡)');
+}
+if (command == 'tangerine') {
+  message.reply('🍊 Mandarynka. Prosz (｡◕‿◕｡)');
+}
+if(command == 'waffles'){
+  message.reply("<:waffle:452753431447207956> Gofry dla Ciebie (｡◕‿◕｡)")
+}
+if (command == 'lemon') {
+  message.reply('🍋 Cytrynka (｡◕‿◕｡)');
+}
+if (command == 'banana') {
+  message.reply('🍌 Banan (bez skojarzeń) (｡◕‿◕｡)');
+}
+if (command == 'pineapple') {
+  message.reply('🍍 Ananas (｡◕‿◕｡)');
+}
+if (command == 'xanax') {
+  message.reply(':pill: Bierz, ale musisz mi też dać trochę ');
+}
+
+if (message.content === 'Mieciu zabij się') {
+
+  let person = args.join(" ")
+  let punch = new Discord.RichEmbed()
+   .setColor(config.embed_color)
+  .addField("Ehh... Przez" + message.author.username.toString() + " Tracę wiarę w ludzi" )
+  .setImage(`https://media.giphy.com/media/JlrG0SpsjDIHK/giphy.gif`);
+    message.channel.send({
+     embed: punch
+   });
+    }
+    if (message.content === 'Mieciu ruchaj mnie') {
+
+    let person = args.join(" ")
+  let punch = new Discord.RichEmbed()
+   .setColor(config.embed_color)
+  .addField("Mrał" + message.author.username.toString())
+  .setImage(`https://cdn.discordapp.com/attachments/424585943362568202/428954828085919744/insert_lenny_face_here__by_winterthedragoness-dbge6pa.gif`);
+    message.channel.send({
+     embed: punch
+   });
+
+  }
+  /*
+  .addField("Użytkowe", )
+  .addField("Komendy 4FUN", ` )
+  .addField("Na co reaguje bot",, inline  = true )
+   .addField("Komendy-Jedzenie",``)
+   .addField("Komendy-Picie",``)
+  .addField("Prochy ",`xanax`, inline = true)*/
+//HELP ===============================================================================
+
+
+
+});
+
+client.on('message', async  message => {
+ let args
+
+
+  if (message.content == 'Mieciu') {
+    if(message.author.bot) return;
+    var odp = Math.floor(Math.random() * 5) + 1
+    message.channel.send(modp[odp-1])
+
+  }
+  if (message.content == 'Mieciu chcesz podpaskę?') {
+    message.channel.send('Wolę tampon');
+  }
+
+
+  if (message.content === 'Mieciu kocham cię') {
+    message.reply('A ja dla Ciebie nie ;)');
+  }
+  if (message.content === 'Prawda Mieciu?') { if(message.author.bot) return;
+    if(message.author.bot) return;
+    var odp = Math.floor(Math.random() *11) + 1
+    message.channel.send(rand[odp-1])
+  }
+  if (message.content === 'Mieciu był ban?') {
+    message.channel.send('Był hehehehehehehe');
+  }
+  if (message.content == 'Mieciu ćpamy?') {
+    message.reply('Spoko, tylko żeby tatke <@367390191721381890> nie widział.');
+    console.log("Mieciu ćpa z " + message.author.username.toString());
+  }
+
+  if (message.content == 'Mieciu jesteś Bogiem?') {
+    message.channel.send('Uświadom to sobie sobie');
+  }
+   if (message.content == 'TEST') {
+    if(message.author.bot) return;
+    var odp = Math.floor(Math.random() * 5) + 1
+    message.channel.send(modp[odp-1])
+  }
+  if (message.content == 'Mieciu kłamie') {
+    message.reply('Ejejejej. Bez takich oskarżeń mi tu');
+  }
+   if (message.content == 'Mieciu cho na solo') {
+
+   let punch = new Discord.RichEmbed()
+    .setColor(config.embed_color)
+   .setTitle("Przypierdoliiiiłem" + message.author.username.toString() )
+   .setImage(`https://cdn.discordapp.com/attachments/442190990376435712/443858687543738374/punch.gif`);
+     message.channel.send({
+      embed: punch
+    });
+    message.reply("(ง'̀-'́)ง");
+  }
+
+  if (message.content == 'Mieciu wpierdol') {
+
+   let punch = new Discord.RichEmbed()
+    .setColor(config.embed_color)
+   .addField("Przypierdoliiiiłem" + message.author.username.toString() )
+   .setImage(`https://cdn.discordapp.com/attachments/442190990376435712/443858687543738374/punch.gif`);
+     message.channel.send({
+      embed: punch
+    });
+    message.reply("(ง'̀-'́)ง");
+  }
+
+
+
+  if (message.content == 'Mieciu napewno będzie ban?') {
+    message.reply({
+  files: ['https://cdn.discordapp.com/attachments/365970118259507222/422158886997458944/95874_admini.png']
+})
+}
+
+
+
+  if (message.content.includes('Misiaa')) {
+        message.channel.send('Misia! :black_heart:');
+      }
+      if (message.content.includes('misiaa')) {
+        message.channel.send('Misia :black_heart:!');
+      }
+     //JEDZENIE====================================================================
+  if (message.content.includes('smacznego')) {
+    if(message.guild.id =='418157358628339713') return
+    if(message.author.bot) return;
+    var odp = Math.floor(Math.random() * 4) + 1
+    message.channel.send(jedzenie[odp-1])
+      }
+  if (message.content.includes('Smacznego')) {
+    if(message.guild.id =='418157358628339713') return
+    if(message.author.bot) return;
+    var odp = Math.floor(Math.random() * 4) + 1
+    message.channel.send(jedzenie[odp-1])
+      }
+   //WITAM================================================================================
+  if (message.content.includes('Wita')) {
+    if(message.guild.id =='418157358628339713') return
+        if(message.author.bot) return;
+        var odp = Math.floor(Math.random() * 4) + 1
+        message.channel.send(hej[odp-1])
+      }
+      if (message.content.includes('wita')) {
+        if(message.guild.id =='418157358628339713') return
+        if(message.author.bot) return;
+        var odp = Math.floor(Math.random() * 4) + 1
+        message.channel.send(hej[odp-1])
+      }
+  //DOBRANOC========================================================================
+
+
+  if (message.content.includes('Dobranoc')) {
+    if(message.author.bot) return;
+    var odp = Math.floor(Math.random() * 4) + 1
+    message.channel.send(papa[odp-1])
+
+  }
+
+  if (message.content.includes('dobranoc')) {
+    if(message.author.bot) return;
+    var odp = Math.floor(Math.random() * 4) + 1
+    message.channel.send(papa[odp-1])
+
+  }
+
+  if(message.content == 'Mieciu to cham') message.channel.send("Wypierdalaj")
+ //========================================================================
+ if (message.content.includes('Mieciuu')) {
+        message.channel.send('Jaa! :heart:');
+      }
+      if (message.content.includes('LOL')) {
+        message.channel.send('https://tenor.com/view/xd-gif-8855872');
+      }
+      if (message.content === 'Mieciu poratuj złotóweczką') {
+
+
+        let punch = new Discord.RichEmbed()
+         .setColor(config.embed_color)
+        .setTitle( message.author.username.toString() + " Jak tak bardzo chcesz..." )
+        .setImage("https://cdn.discordapp.com/attachments/424585943362568202/426794474702897153/pobrany_plik.jpg");
+          message.channel.send({
+           embed: punch
+         });
+         message.channel.send('Psst, to moja pierwsza komenda ^^')
+          }
+
+
+          if (message.content === 'Mieciu pogłaszcz mnie') {
+
+        let punch = new Discord.RichEmbed()
+         .setColor(config.embed_color)
+        .setTitle( message.author.username.toString() + " ;3" )
+        .setImage(`http://filing.pl/wp-content/uploads/2015/09/filing_images_6d7223b57ffe.gif`);
+          message.channel.send({
+           embed: punch
+         });
+        }
+          if (message.content === 'Mieciu wpierdol mu') {
+
+
+        let punch = new Discord.RichEmbed()
+         .setColor(config.embed_color)
+        .setTitle( message.author.username.toString() + "  Jadeeeeeeee" )
+        .setImage(`http://www.wc.pl/media/456221c3d6668a0497bb/obrazek.gif`);
+          message.channel.send({
+           embed: punch
+         });
+          }
+          if (message.content == 'Mieciu przywitaj się') {
+
+
+        let punch = new Discord.RichEmbed()
+         .setColor(config.embed_color)
+        .setTitle( message.author.username.toString() + " Heh" )
+        .setImage(`http://img2.stylowi.pl//images/items/o/201410/stylowi_pl_inne_26187487.gif`);
+          message.channel.send({
+           embed: punch
+         });
+          }
+
+          if (message.content === 'Mieciu flirtuj ze mną') {
+
+
+        let punch = new Discord.RichEmbed()
+         .setColor(config.embed_color)
+      .setTitle( message.author.username.toString() + " Heh" )
+        .setImage(`https://78.media.tumblr.com/6dd33817ab7c9c4badfb79a4a79df973/tumblr_nn0g44ETJK1ur6wvco1_400.gif`);
+          message.channel.send({
+           embed: punch
+         });
+          }
+
+
+
+
+
+
+      if (message.content === 'Mieciu będzie ban?') {
+
+        let person = args.join(" ")
+           let punch = new Discord.RichEmbed()
+            .setColor(config.embed_color)
+          .setTitle("Spokojnie " + message.author.username.toString() + " Będzie" )
+           .setImage(`https://i.imgur.com/O3DHIA5.gif`);
+             message.channel.send({
+              embed: punch
+            });
+
+          }
+        });
