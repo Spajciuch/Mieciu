@@ -14,7 +14,7 @@ const hugg = require ('./Giphy/hug.json')
 const patg = require ('./Giphy/pat.json')
 const slapg  = require('./Giphy/slap.json')
 const punchg = require('./Giphy/punch.json')
-
+const ms = require('ms')
 const Music = require('discord.js-musicbot-addon-v2-pl');
 client.on("guildCreate", guild => {
   // This event triggers when the bot joins a guild.
@@ -464,7 +464,6 @@ if(command == 'avatar'){
   }
 
   if(command == 'info') {
-    const ms = require('ms')
     const sys = require('computer-info')
    let info = new Discord.RichEmbed()
    .setAuthor("Informacje o bocie")
