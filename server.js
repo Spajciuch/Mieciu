@@ -120,8 +120,9 @@ client.on('guildMemberRemove', member => {
   log.send({embed: embed})
 }
 });
+const snekfetch = require('snekfetch')
 //==============================================================================
-client.on('guildMemberAdd', member => {
+client.on('guildMemberAdd', async member => {
   if(member.guild.id == '415917934268121118'){
   const channel = member.guild.channels.find('name', 'witamy-zegnamy');
 
@@ -134,7 +135,35 @@ client.on('guildMemberAdd', member => {
   const logi = member.guild.channels.find('name', 'logi')
   if(!logi) return
   var hr = member.joinedAt.getHours()+ 2
+const { createCanvas, loadImage } = require('canvas')
+const canvas = createCanvas(700, 250)
+const ctx = canvas.getContext('2d')
+const { body: avatar } = await snekfetch.get(member.user.displayAvatarURL);
+const bkg = await loadImage("./welcome.png");
 
+  /**/
+
+
+  ctx.drawImage(bkg, 0, 0, canvas.width, canvas.height);
+    ctx.font = `70px "DK Grumpy Tiger"`
+  ctx.fillStyle="#ff009c";
+  ctx.textAlign="center";
+  ctx.fillText(member.user.username, 500, 150)
+
+
+ctx.beginPath();
+  ctx.arc(135, 124, 93, 0, Math.PI * 2, false);
+  ctx.strokeStyle = "black";
+  ctx.lineWidth = 9;
+  ctx.stroke();
+  ctx.closePath();
+  ctx.clip();
+
+  const { body: buffer } = await snekfetch.get(member.user.displayAvatarURL);
+  const avt = await loadImage(buffer);
+  ctx.drawImage(avt, 37, 26, 194, 194);
+    const attachment = new Discord.Attachment(canvas.toBuffer(), 'meme.png');
+  channel.send(attachment);
   let embed = new Discord.RichEmbed()
   .setTitle("Nowa osoba")
   .addField("Użytkownik: ",member,true)
@@ -143,7 +172,7 @@ client.on('guildMemberAdd', member => {
   logi.send({embed: embed}).catch(error => 0)
 }
 });
-client.on('guildMemberAdd', member => {
+client.on('guildMemberAdd', async member => {
   if(member.guild.id !== '423545059666034689') return
     const channel = member.guild.channels.find('name', 'witamy-zegnamy');
 
@@ -156,7 +185,35 @@ client.on('guildMemberAdd', member => {
     const logsy = member.guild.channels.find('name', 'logi')
     if(!logsy) return
     var hr = member.joinedAt.getHours()+ 2
+const { createCanvas, loadImage } = require('canvas')
+const canvas = createCanvas(700, 250)
+const ctx = canvas.getContext('2d')
+const { body: avatar } = await snekfetch.get(member.user.displayAvatarURL);
+const bkg = await loadImage("./welcome.png");
 
+	/**/
+
+
+  ctx.drawImage(bkg, 0, 0, canvas.width, canvas.height);
+  	ctx.font = `70px "DK Grumpy Tiger"`
+	ctx.fillStyle="#ff009c";
+	ctx.textAlign="center";
+	ctx.fillText(member.user.username, 500, 150)
+
+
+ctx.beginPath();
+  ctx.arc(135, 124, 93, 0, Math.PI * 2, false);
+  ctx.strokeStyle = "black";
+  ctx.lineWidth = 9;
+  ctx.stroke();
+  ctx.closePath();
+  ctx.clip();
+
+  const { body: buffer } = await snekfetch.get(member.user.displayAvatarURL);
+  const avt = await loadImage(buffer);
+  ctx.drawImage(avt, 37, 26, 194, 194);
+    const attachment = new Discord.Attachment(canvas.toBuffer(), 'meme.png');
+  channel.send(attachment);
     let embed = new Discord.RichEmbed()
     .setTitle("Nowa osoba")
     .addField("Użytkownik: ",member,true)
