@@ -36,5 +36,6 @@ exports.conf = {
 };
 
 module.exports.help = {
-    name: "unmute"
+    name: "unmute",
+    category:"admin"
 }

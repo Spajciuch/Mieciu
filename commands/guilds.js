@@ -13,5 +13,6 @@ let embed = new Discord.RichEmbed()
   }
 
 module.exports.help = {
-    name: "guilds"
+    name: "guilds",
+    category:"info"
 }

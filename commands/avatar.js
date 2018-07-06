@@ -16,7 +16,7 @@ module.exports.run = async (client, message, args) => {
       });
     	}
 
-   	 else if(!args) {
+   	 else{
       let avatar =  new Discord.RichEmbed()
       .setColor(config.embed_color)
       .setTitle("Twój Avatar")
@@ -29,22 +29,9 @@ module.exports.run = async (client, message, args) => {
       }).catch(function (err) {
       });
     }
-   else {
-   		let avv = client.users.find("name", args.join(" "))
-      let avatar = new Discord.RichEmbed()
-      .setColor(config.embed_color)
-      .setTitle("Avatar użytkownika " + args.join(" "))
-      .setImage(avv.avatarURL)
 
-
-      message.channel.send({embed: avatar});
-      await Jimp.read(message.mentions.members.first().user.avatarURL).then(async function (image) {
-        // do stuff with the image
-        await image.write("./Profile/avatar/" + message.mentions.members.first().user.id + ".png")
-      }).catch(function (err) {
-      });
-    	}
 }
 module.exports.help = {
-	name: "avatar"
+	name: "avatar",
+  category: "info"
 }

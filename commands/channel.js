@@ -10,5 +10,6 @@ message.guild.createChannel(args.join(" ").split(" | ")[0], args.join(" ").split
   .catch(console.error);
 }
 module.exports.help = {
-  name: "prune"
+  name: "prune",
+  category: "util"
 }

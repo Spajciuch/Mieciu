@@ -8,5 +8,6 @@ module.exports.run = async (client, message, args) =>
  .catch(console.error);
 }
 module.exports.help = {
-  name: "set.channel.name"
+  name: "set.channel.name",
+  category:"admin"
 }

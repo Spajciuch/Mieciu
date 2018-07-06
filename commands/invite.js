@@ -7,5 +7,6 @@ module.exports.run = async (client, message, args) => {
   message.channel.send("Sprawdź DMy")
 }
 module.exports.help = {
-	name: "invite"
+	name: "invite",
+	category:"info"
 }

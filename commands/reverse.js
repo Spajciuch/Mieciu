@@ -15,5 +15,6 @@ var text = args.join(" ");
        message.channel.send(reversed);
    }
    module.exports.help = {
-     name: "reverse"
+     name: "reverse",
+     category:"util"
    }

@@ -8,5 +8,6 @@ message.guild.setVerificationLevel(args.join(" "))
 .catch(console.error);
 }
 module.exports.help = {
-  name: "set.ver.lvl"
+  name: "set.ver.lvl",
+  category:"admin"
 }

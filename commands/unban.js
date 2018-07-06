@@ -9,5 +9,6 @@ tools.unban(message.guild.id, args[0]).then(b => {
 });
 }
 module.exports.help = {
-  name: "unban"
+  name: "unban",
+  category:"admin"
 }

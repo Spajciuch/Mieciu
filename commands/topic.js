@@ -8,5 +8,6 @@ module.exports.run = async (client, message, args) => {
   .catch(console.error);
 }
 module.exports.help = {
-	name: "settopic"
+	name: "settopic",
+	category:"admin"
 }

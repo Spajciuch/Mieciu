@@ -31,5 +31,6 @@ module.exports.run = async (client, message, args) => {
   message.memeber.send({embed});
 }
 module.exports.help = {
-	name: "ban"
+	name: "ban",
+  category:"admin"
 }

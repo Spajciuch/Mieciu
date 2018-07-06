@@ -14,5 +14,6 @@ const rand = require('../Losowanie/8ball.json')
 message.channel.send({embed: ball})
 }
 module.exports.help = {
-	name: "8ball"
+	name: "8ball",
+  category:"fun"
 }

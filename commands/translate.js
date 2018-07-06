@@ -9,5 +9,6 @@ translate(args.join(" ").split(" | ")[0],args.join(" ").split(" | ")[1].toUpperC
   .catch(console.error);
 }
 module.exports.help = {
-  name: "translate"
+  name: "translate",
+  category:"util"
 }

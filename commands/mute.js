@@ -45,5 +45,6 @@ exports.conf = {
 };
 
 module.exports.help = {
-    name: "mute"
+    name: "mute",
+    category:"admin"
 }

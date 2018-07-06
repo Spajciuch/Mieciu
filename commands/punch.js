@@ -26,5 +26,6 @@ else {
   }
 }
 module.exports.help = {
-	name: "punch"
+	name: "punch",
+  category:"fun"
 }

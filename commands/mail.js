@@ -50,5 +50,6 @@ message.delete()
 
 }
 module.exports.help = {
-  name: "mail"
+  name: "mail",
+  category:"util"
 }

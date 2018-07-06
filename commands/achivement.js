@@ -10,6 +10,7 @@ module.exports.run = async (client, message, args) => {
 message.channel.send({embed: embed})
 }
 module.exports.help ={
-  name: "achievement"
+  name: "achievement",
+  category: "fun"
 }
 //`https://www.minecraftskinstealer.com/achievement/a.php?i=2&h=Achievement+Get%21&t=dwa+wyrazy`

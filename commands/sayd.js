@@ -10,5 +10,6 @@ if (message.content.includes('@here')) return message.reply("Mnie nie wrobisz")
   message.channel.send(text);
 }
 module.exports.help = {
-	name: "sayd"
+	name: "sayd",
+	category:"fun"
 }

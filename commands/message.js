@@ -15,6 +15,7 @@
       })
   }
   module.exports.help = {
-      name: "getmsg"
+      name: "getmsg",
+      category:"util"
   }
 

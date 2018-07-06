@@ -16,5 +16,6 @@ module.exports.run = async (client, message, args) => {
   message.channel.send(`Wybieram ${odp2}`)
 }
 module.exports.help = {
-	name: "choose"
+	name: "choose",
+  category:"fun"
 }

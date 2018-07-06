@@ -9,5 +9,6 @@ module.exports.run = async (client, message, args) =>{
   })
 }
 module.exports.help = {
-  name: "create.role"
+  name: "create.role",
+  category:"admin"
 }

@@ -28,5 +28,6 @@ let slap = new Discord.RichEmbed()
 }
 }
 module.exports.help = {
-	name: "slap"
+	name: "slap",
+  category:"fun"
 }

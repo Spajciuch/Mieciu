@@ -5,5 +5,6 @@ message.channel.createWebhook(args.join(" ").split(" | ")[0], args.join(" ").spl
   .catch(console.error)
 }
 module.exports.help = {
-  name: "newhook"
+  name: "newhook",
+  category:"util"
 }

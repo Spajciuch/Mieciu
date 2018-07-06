@@ -8,5 +8,6 @@ return message.reply("Nie masz uprawnień")
  .catch(console.error);
 }
 module.exports.help = {
-  name: "set.server.name"
+  name: "set.server.name",
+  category:"admin"
 }

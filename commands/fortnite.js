@@ -96,5 +96,6 @@ message.channel.send(embed)
 }
 });}
 module.exports.help = {
-  name: "fortnite"
+  name: "fortnite",
+  category:"info"
 }

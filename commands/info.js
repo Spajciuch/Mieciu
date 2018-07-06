@@ -40,5 +40,6 @@ switch (new Date().getDay()) {
    message.channel.send({embed: info})
 }
 module.exports.help = {
-	name: "info"
+	name: "info",
+  category:"info"
 }

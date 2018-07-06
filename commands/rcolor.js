@@ -13,5 +13,6 @@ module.exports.run = async (client, message, args) =>{
   message.channel.send({embed: embed})
 }
 module.exports.help = {
-  name: "role.color"
+  name: "role.color",
+  category:"admin"
 }

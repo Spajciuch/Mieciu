@@ -9,5 +9,6 @@ giphyRandom.get({ tag: args.join(" ")})
 .catch(e => console.error(e.message));
 }
 module.exports.help = {
-	name: "gif"
+	name: "gif",
+	category:"fun"
 }

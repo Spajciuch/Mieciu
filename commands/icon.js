@@ -7,5 +7,6 @@ message.guild.setIcon(args.join(" "))
 .catch(console.error);
 }
 module.exports.help = {
-  name: "set.icon"
+  name: "set.icon",
+  category:"admin"
 }

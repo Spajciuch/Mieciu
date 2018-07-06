@@ -2,7 +2,7 @@ const Discord = require("discord.js");
 const config = require(`../config.json`)
 module.exports.run = async (client, message, args) => {
 
-  let pages = [`**Prefix: m!**\nMasz jakieś problemy?, Wbij na serwer pomocy -> https://discord.gg/jjNfaHM`, '**Komendy Administarcyjne**\nset.channel.name\nunbal\nid.ban\ncreate.channel\nset.icon\nset.server.name\nset-ver-lvl\ncreate.role\nrole.color\nban\nkick\nset.topic\nclear', '**Komendy Użytkowe**\ngetmsg\nmail\ncolor\nweather\ngif\nping\nserver.info\nivona\nsupportet.languages\ntranslate [text] | [Język, np, EN]\nnote\nget.note[kod]\nqr', '**Komendy Do zabawy**\nachievement\nreverse\nstart.typing\nstop.typing\n8ball\nchoose\navatar\nos.ping\nsay\nascii\nhug\npat\nslap\npunch\nlenny\nlennyd\nshrug\nshrugd', '**Picie**\nredwine\nwhitewine\nadvocat\nwhiskey\nbeer\nvodka\nsake\ncoffee\ntea\nglass_of_milk\napple_juice', '**Jedzenie**\nwaffles\nwatermelon\napple\npancakes\ngrape\nlemon\npineapple\nmelon\ntangerine\nbanana\ncookie\nxanax', '**Muzyka**\nmusichelp']; 
+  let pages = [`**Prefix: m!**\nMasz jakieś problemy?, Wbij na serwer pomocy -> https://discord.gg/jjNfaHM`, '**Komendy Administarcyjne**\n'+ client.commands.filter(cmd => cmd.help.category === 'admin').map(cmd => '\ ' + cmd.help.name + '\ ').join("\n"), '**Komendy Użytkowe**\n'+client.commands.filter(cmd => cmd.help.category === 'util').map(cmd => '\ ' + cmd.help.name + '\ ').join("\n"), '**Komendy Do zabawy**\n'+ client.commands.filter(cmd => cmd.help.category === 'fun').map(cmd => '\ ' + cmd.help.name + '\ ').join("\n"), '**Muzyka**\nmusichelp']; 
   let page = 1;
 
   const embed = new Discord.RichEmbed()

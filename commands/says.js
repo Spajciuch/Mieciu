@@ -7,5 +7,6 @@ module.exports.run = async (client, message, args) => {
     message.channel.send(text);
 }
 module.exports.help = {
-	name: "say"
+	name: "say",
+	category:"fun"
 }
