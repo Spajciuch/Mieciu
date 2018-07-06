@@ -59,6 +59,6 @@
     "discordtools" : "1.0.54",
     "snekfetch" : "4.0.4",
     "computer-info": "0.2.0",
-    "canvas": "1.6.11"
+    "canvas": "^2.0.0-alpha.12"
   }
 }
