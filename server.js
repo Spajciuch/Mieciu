@@ -139,7 +139,7 @@ const { createCanvas, loadImage } = require('canvas')
 const canvas = createCanvas(700, 250)
 const ctx = canvas.getContext('2d')
 const { body: avatar } = await snekfetch.get(member.user.displayAvatarURL);
-const bkg = await loadImage("./welcome.png");
+const bkg = await loadImage("./photos/welcome.png");
 
   /**/
 
@@ -189,7 +189,7 @@ const { createCanvas, loadImage } = require('canvas')
 const canvas = createCanvas(700, 250)
 const ctx = canvas.getContext('2d')
 const { body: avatar } = await snekfetch.get(member.user.displayAvatarURL);
-const bkg = await loadImage("./welcome.png");
+const bkg = await loadImage("./photos/welcome.png");
 
 	/**/
 
