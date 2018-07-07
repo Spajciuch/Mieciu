@@ -81,5 +81,5 @@ loadImage(bg).then((image) => {
 }
 module.exports.help = {
 	name: "genmeme",
-	category:"util"
+	category:"photo"
 }
