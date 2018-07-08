@@ -15,6 +15,31 @@ const patg = require ('./Giphy/pat.json')
 const slapg  = require('./Giphy/slap.json')
 const punchg = require('./Giphy/punch.json')
 const ms = require('ms')
+var firebase = require('firebase')
+var fireconfig = {
+    apiKey: process.env.DATABSEAPI,
+    authDomain: process.env.DATABASEDMN,
+    databaseURL: process.env.DATABASEURL,
+    projectId: process.env.DATABASEID,
+    storageBucket: process.env.DATABASEBCK,
+    messagingSenderId: process.env.DATABSESENDID
+  };
+  firebase.initializeApp(fireconfig);
+  var database = firebase.database();
+  client.on('message', message => {
+  database.ref(`/config/${message.guild.id}/ver`).once('value')
+  .then(snapshot => { 
+     if (snapshot.val() !== 1) {
+        database.ref(`/config/${message.guild.id}`).set({
+          prefix: "m!",
+          pingi: true,
+          ver: 1
+      })
+        message.channel.send("Wygenerowano config serwera, niedługo pojawią się opcje")
+  }
+  })
+
+});
 const Music = require('discord.js-musicbot-addon-v2-pl');
 client.on("guildCreate", guild => {
   // This event triggers when the bot joins a guild.
@@ -324,13 +349,24 @@ client.on("message", async message => {
   client.channels.get("459772256525221908").edit({name: `Użytkownicy: ${client.users.size}`});
   client.channels.get("464340088613109760").edit({name: `Uptime: ${ms(client.uptime)}`})
   //================================================================================
-  if(!message.content.startsWith(config.prefix)) return;
+  var fireprefix =''
+database.ref(`/config/${message.guild.id}/prefix`).once('value')
+.then(snapshot => { 
+  fireprefix = snapshot.val()
+
+if(message.content == 'fire'){
+  message.channel.send(fireprefix)
+}
+
+  if(!message.content.startsWith(fireprefix)) return;
+
 if (message.author.bot) return;
   let messageArray = message.content.split(" ");
-    let prefix = config.prefix
+    let prefix = fireprefix
     let cmd = messageArray[0];
-var args = message.content.slice(config.prefix.length).trim().split(/ +/g);;
+var args = message.content.slice(fireprefix.length).trim().split(/ +/g);;
 var command = args.shift().toLowerCase();
+
 
 var embd = new Discord.RichEmbed()
   let commandfile = client.commands.get(cmd.slice(prefix.length));
@@ -338,7 +374,54 @@ if(commandfile) commandfile.run(client, message, args);
   if (message.author.bot) return;
   if (message.content.indexOf(config.prefix) !== 0) return;
   if(message.author.bot) return;
+if(command == 'settings'){
+   if(!message.member.hasPermission('MANAGE_GUILD')) return message.reply('Nie masz uprawnień')
+   database.ref(`/config/${message.guild.id}/prefix`).once('value')
+      .then(prefix => {
+        database.ref(`/config/${message.guild.id}/pingi`).once('value')
+        .then(pingi => {
+            database.ref(`/config/${message.guild.id}/ver`).once('value')
+            .then(ver => {
 
+    if(!args[0]) {
+      let embed = new Discord.RichEmbed()
+      .setColor(config.embed_color)
+      .setTitle("Ustawienia")
+      .addField("Prefix", prefix.val())
+      .addField("Komenda do pingowania", pingi.val())
+      .setFooter(`Wersja Configu: ${ver.val()}`)
+      message.channel.send({embed})
+    } else if(args[0] == 'prefix') {
+      if(args[1] == '') return message.reply("Podaj Prefix")
+      database.ref(`/config/${message.guild.id}`).set({
+        prefix: args[1],
+        pingi: pingi.val(),
+        ver: ver.val()
+      });
+      message.channel.send("Nowy Prefix to: " + args[1])
+    } else if (args[0] == 'pingi'){
+      if(args[1] == 'on'){
+        database.ref(`/config/${message.guild.id}`).set({ 
+        prefix: prefix.val(),
+        pingi: true,
+        ver: ver.val()
+        })
+        message.channel.send("Komenda do pingowania jest teraz włączona")
+      } else if(args[1] == 'off'){
+        database.ref(`/config/${message.guild.id}`).set({ 
+        prefix: prefix.val(),
+        pingi: false,
+        ver: ver.val()
+        })
+        message.channel.send("Komenda do pingowania jest teraz wyłączona")
+      } else {
+        message.reply("Nie podałeś właściwej opcji")
+      }
+    }
+        })
+        })
+    })
+}
 //==================================================================================
 
 
