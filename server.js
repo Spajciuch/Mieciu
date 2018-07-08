@@ -164,7 +164,7 @@ const { createCanvas, loadImage } = require('canvas')
 const canvas = createCanvas(700, 250)
 const ctx = canvas.getContext('2d')
 const { body: avatar } = await snekfetch.get(member.user.displayAvatarURL);
-const bkg = await loadImage("./photos/welcome.png");
+const bkg = await loadImage("./welcome.png");
 
   /**/
 
@@ -214,16 +214,16 @@ const { createCanvas, loadImage } = require('canvas')
 const canvas = createCanvas(700, 250)
 const ctx = canvas.getContext('2d')
 const { body: avatar } = await snekfetch.get(member.user.displayAvatarURL);
-const bkg = await loadImage("./photos/welcome.png");
+const bkg = await loadImage("./photos/giphy.gif");
 
-	/**/
+  /**/
 
 
   ctx.drawImage(bkg, 0, 0, canvas.width, canvas.height);
-  	ctx.font = `70px "DK Grumpy Tiger"`
-	ctx.fillStyle="#ff009c";
-	ctx.textAlign="center";
-	ctx.fillText(member.user.username, 500, 150)
+    ctx.font = `70px "DK Grumpy Tiger"`
+  ctx.fillStyle="#ff009c";
+  ctx.textAlign="center";
+  ctx.fillText(member.user.username, 500, 150)
 
 
 ctx.beginPath();
@@ -324,7 +324,13 @@ client.on("voiceStateUpdate", (oldMember, newMember) => {
 
 const Jimp = require("jimp");
 client.on("message", async message => {
-    const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
+  //================================================================================
+  var fireprefix =''
+database.ref(`/config/${message.guild.id}/prefix`).once('value')
+.then(snapshot => { 
+  fireprefix = snapshot.val()
+})
+    const args = message.content.slice(fireprefix.length).trim().split(/ +/g);
     if(message.author.bot) return
  if(message.channel.name !== 'clev') return
   /* const Simsimi = require('simsimi');
@@ -379,6 +385,8 @@ if(command == 'settings'){
       .then(prefix => {
         database.ref(`/config/${message.guild.id}/pingi`).once('value')
         .then(pingi => {
+          database.ref(`/config/${message.guild.id}/util`).once('value')
+          .then(util => {
             database.ref(`/config/${message.guild.id}/ver`).once('value')
             .then(ver => {
 
@@ -386,8 +394,9 @@ if(command == 'settings'){
       let embed = new Discord.RichEmbed()
       .setColor(config.embed_color)
       .setTitle("Ustawienia")
-      .addField("Prefix", prefix.val())
-      .addField("Komenda do pingowania", pingi.val())
+      .addField("Prefix: " + prefix.val(), "Aby zmienić <prefix>settings prefix <nowy prefix>")
+      .addField("Komenda do pingowania: " + pingi.val(), "Aby zmienić <prefix>settings pingi <on/off>")
+      .addField("Komendy administracyjne: "+util.val(),"Aby zmienić <prefix>settings util <on/off>")
       .setFooter(`Wersja Configu: ${ver.val()}`)
       message.channel.send({embed})
     } else if(args[0] == 'prefix') {
@@ -395,6 +404,7 @@ if(command == 'settings'){
       database.ref(`/config/${message.guild.id}`).set({
         prefix: args[1],
         pingi: pingi.val(),
+        util: util.val(),
         ver: ver.val()
       });
       message.channel.send("Nowy Prefix to: " + args[1])
@@ -403,6 +413,7 @@ if(command == 'settings'){
         database.ref(`/config/${message.guild.id}`).set({ 
         prefix: prefix.val(),
         pingi: true,
+        util: util.val(),
         ver: ver.val()
         })
         message.channel.send("Komenda do pingowania jest teraz włączona")
@@ -410,16 +421,36 @@ if(command == 'settings'){
         database.ref(`/config/${message.guild.id}`).set({ 
         prefix: prefix.val(),
         pingi: false,
+        util: util.val(),
         ver: ver.val()
         })
         message.channel.send("Komenda do pingowania jest teraz wyłączona")
       } else {
         message.reply("Nie podałeś właściwej opcji")
+      } 
+    } else if(args[0] == 'util') {
+      if(args[1] == 'on'){
+        database.ref(`/config/${message.guild.id}`).set({  
+          prefix: prefix.val(),
+          pingi: pingi.val(),
+          util: true,
+          ver: ver.val()
+        })
+        message.channel.send("Komendy administracyjne są teraz włączone")
+      } else if(args[1] == 'off'){
+          database.ref(`/config/${message.guild.id}`).set({  
+          prefix: prefix.val(),
+          pingi: pingi.val(),
+          util: false,
+          ver: ver.val()
+        })
+          message.channel.send("Komendy administracyjne są teraz wyłączone")
       }
     }
         })
         })
-    })
+    })    
+  })
 }
 //==================================================================================
 
@@ -447,10 +478,9 @@ if(command == 'get.note') {
   })
 }
 */ 
+
 })
 });
-
-//=================================================================================
 const music = new Music(client, {
 
    prefix: config.prefix,
@@ -463,5 +493,7 @@ const music = new Music(client, {
   djRole: "@everyone"
 
 });
+//=================================================================================
+
 
 client.login(process.env.TOKEN)
