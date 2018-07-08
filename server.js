@@ -367,12 +367,11 @@ if (message.author.bot) return;
 var args = message.content.slice(fireprefix.length).trim().split(/ +/g);;
 var command = args.shift().toLowerCase();
 
-
 var embd = new Discord.RichEmbed()
-  let commandfile = client.commands.get(cmd.slice(prefix.length));
+  let commandfile = client.commands.get(cmd.slice(fireprefix.length));
 if(commandfile) commandfile.run(client, message, args);
   if (message.author.bot) return;
-  if (message.content.indexOf(config.prefix) !== 0) return;
+  if (message.content.indexOf(fireprefix) !== 0) return;
   if(message.author.bot) return;
 if(command == 'settings'){
    if(!message.member.hasPermission('MANAGE_GUILD')) return message.reply('Nie masz uprawnień')
@@ -447,10 +446,13 @@ if(command == 'get.note') {
     message.channel.send({embed: note})
   })
 }
-*/ })
+*/ 
+})
 });
+
 //=================================================================================
 const music = new Music(client, {
+
    prefix: config.prefix,
   youtubeKey: config.yt,
   embedColor: 7506394,
