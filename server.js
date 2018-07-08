@@ -447,7 +447,7 @@ if(command == 'get.note') {
     message.channel.send({embed: note})
   })
 }
-*/ 
+*/ })
 });
 //=================================================================================
 const music = new Music(client, {
