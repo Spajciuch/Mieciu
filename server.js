@@ -35,7 +35,7 @@ var fireconfig = {
           pingi: true,
           ver: 1
       })
-        message.channel.send("Wygenerowano config serwera, niedługo pojawią się opcje")
+        message.channel.send("Wygenerowano config serwera, opcje pod komendą settings")
   }
   })
 
