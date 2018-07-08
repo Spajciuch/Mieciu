@@ -29,13 +29,14 @@ var fireconfig = {
   client.on('message', message => {
   database.ref(`/config/${message.guild.id}/ver`).once('value')
   .then(snapshot => { 
-     if (snapshot.val() !== 1) {
+     if (snapshot.val() !== 2) {
         database.ref(`/config/${message.guild.id}`).set({
           prefix: "m!",
           pingi: true,
-          ver: 1
+          util: true,
+          ver: 2
       })
-        message.channel.send("Wygenerowano config serwera, opcje pod komendą settings")
+        message.channel.send("Wygenerowano config serwera, opcje pod komendą settings [wersja configu: 2]")
   }
   })
 
