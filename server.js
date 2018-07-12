@@ -27,6 +27,9 @@ var fireconfig = {
   firebase.initializeApp(fireconfig);
   var database = firebase.database();
   client.on('message', message => {
+      client.on("message", async message => {
+ const dm = message.channel.type === 'dm'
+  if (dm) return message.reply("Tylko serwery");
   database.ref(`/config/${message.guild.id}/ver`).once('value')
   .then(snapshot => { 
      if (snapshot.val() !== 2) {
@@ -349,8 +352,6 @@ database.ref(`/config/${message.guild.id}/prefix`).once('value')
  message.channel.send(body.response)
 });
 client.on("message", async message => {
- const dm = message.channel.type === 'dm'
-  if (dm) return message.reply("Tylko serwery");
   client.channels.get("459752987317764109").edit({name: `Serwery: ${client.guilds.size}`});
   client.channels.get("459762461369827362").edit({name: `Użytkownicy: ${client.users.size}`});
   client.channels.get("459772201738960906").edit({name: `Serwery: ${client.guilds.size}`});
