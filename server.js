@@ -364,7 +364,7 @@ database.ref(`/config/${message.guild.id}/prefix`).once('value')
 .then(snapshot => { 
   fireprefix = snapshot.val()
 
-if(message.content == 'fire'){
+if(message.content == '<@423196130508275716>'){
   message.channel.send(fireprefix)
 }
 
