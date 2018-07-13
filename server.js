@@ -39,7 +39,7 @@ var fireconfig = {
           wchan: null,
           ver: 4
       })
-        message.channel.send("Wygenerowano config serwera, opcje pod komendą settings [wersja configu: 2]")
+        message.channel.send("Wygenerowano config serwera, opcje pod komendą settings [wersja configu: 4]")
   }
   })
 
