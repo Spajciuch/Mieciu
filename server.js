@@ -29,7 +29,7 @@ var fireconfig = {
    client.on('message', message => {
   database.ref(`/config/${message.guild.id}/ver`).once('value')
   .then(snapshot => { 
-     if (snapshot.val() !== 4) {
+     if (snapshot.val() !== 3) {
         database.ref(`/config/${message.guild.id}`).set({
           prefix: "m!",
           pingi: true,
@@ -37,7 +37,7 @@ var fireconfig = {
           wmsg: "Witaj na serwerze :P",
           wlcm: false,
           wchan: null,
-          ver: 4
+          ver: 3
       })
         message.channel.send("Wygenerowano config serwera, opcje pod komendą settings [wersja configu: 4]")
   }
