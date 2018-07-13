@@ -31,7 +31,7 @@ var fireconfig = {
   .then(snapshot => { 
      if (snapshot.val() !== 4) {
         database.ref(`/config/${message.guild.id}`).set({
-          prefix: "c!",
+          prefix: "m!",
           pingi: true,
           util: true,
           wmsg: "Witaj na serwerze :P",
