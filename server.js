@@ -416,6 +416,9 @@ if(command == 'settings'){
         prefix: args[1],
         pingi: pingi.val(),
         util: util.val(),
+            wlcm: wlcm.val(),
+          wmsg: msg.val(),
+          wchan: chan.val(),
         ver: ver.val()
       });
       message.channel.send("Nowy Prefix to: " + args[1])
@@ -425,6 +428,9 @@ if(command == 'settings'){
         prefix: prefix.val(),
         pingi: true,
         util: util.val(),
+             wlcm: wlcm.val(),
+          wmsg: msg.val(),
+          wchan: chan.val(),
         ver: ver.val()
         })
         message.channel.send("Komenda do pingowania jest teraz włączona")
@@ -433,6 +439,9 @@ if(command == 'settings'){
         prefix: prefix.val(),
         pingi: false,
         util: util.val(),
+             wlcm: wlcm.val(),
+          wmsg: msg.val(),
+          wchan: chan.val(),
         ver: ver.val()
         })
         message.channel.send("Komenda do pingowania jest teraz wyłączona")
@@ -445,6 +454,9 @@ if(command == 'settings'){
           prefix: prefix.val(),
           pingi: pingi.val(),
           util: true,
+             wlcm: wlcm.val(),
+          wmsg: msg.val(),
+          wchan: chan.val(),
           ver: ver.val()
         })
         message.channel.send("Komendy administracyjne są teraz włączone")
@@ -453,6 +465,9 @@ if(command == 'settings'){
           prefix: prefix.val(),
           pingi: pingi.val(),
           util: false,
+               wlcm: wlcm.val(),
+          wmsg: msg.val(),
+          wchan: chan.val(),
           ver: ver.val()
         })
           message.channel.send("Komendy administracyjne są teraz wyłączone")
