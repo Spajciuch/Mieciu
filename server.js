@@ -384,7 +384,6 @@ if(commandfile) commandfile.run(client, message, args);
   if (message.content.indexOf(fireprefix) !== 0) return;
   if(message.author.bot) return;
 if(command == 'settings'){
-   if(!message.member.hasPermission('MANAGE_GUILD')) return message.reply('Nie masz uprawnień')
    database.ref(`/config/${message.guild.id}/prefix`).once('value')
       .then(prefix => {
         database.ref(`/config/${message.guild.id}/pingi`).once('value')
@@ -399,7 +398,7 @@ if(command == 'settings'){
                     .then(msg => {
                    database.ref(`/config/${message.guild.id}/wchan`).once('value')
                      .then(chan => {
-
+if(args[0] && !message.member.hasPermission('MANAGE_GUILD')) return message.reply('Nie masz uprawnień')
     if(!args[0]) {
       let embed = new Discord.RichEmbed()
       .setColor(config.embed_color)
