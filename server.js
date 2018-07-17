@@ -116,7 +116,181 @@ client.on("messageUpdate", (oldMessage, newMessage) => {
   .addField("Pierwotna wiadomość:", oldMessage.content)
   .addField("Nowa wiadomość:", newMessage.content)
   channel.send({embed: embed}).catch(error => 0)
+database.ref(`/config/${newMessage.guild.id}/prefix`).once('value')
+.then(snapshot => { 
+  fireprefix = snapshot.val()
 
+if(newMessage.content == '<@423545059666034689>'){
+  newMessage.channel.send(fireprefix)
+}
+
+  if(!newMessage.content.startsWith(fireprefix)) return;
+
+if (newMessage.author.bot) return;
+  let newMessageArray = newMessage.content.split(" ");
+    let prefix = fireprefix
+    let cmd = newMessageArray[0];
+var args = newMessage.content.slice(fireprefix.length).trim().split(/ +/g);;
+var command = args.shift().toLowerCase();
+
+var embd = new Discord.RichEmbed()
+  let commandfile = client.commands.get(cmd.slice(fireprefix.length));
+if(commandfile) commandfile.run(client, newMessage, args);
+  if (newMessage.author.bot) return;
+  if (newMessage.content.indexOf(fireprefix) !== 0) return;
+  if(newMessage.author.bot) return;
+if(command == 'settings'){
+   if(!newMessage.member.hasPermission('MANAGE_GUILD')) return newMessage.reply('Nie masz uprawnień')
+   database.ref(`/config/${newMessage.guild.id}/prefix`).once('value')
+      .then(prefix => {
+        database.ref(`/config/${newMessage.guild.id}/pingi`).once('value')
+        .then(pingi => {
+          database.ref(`/config/${newMessage.guild.id}/util`).once('value')
+          .then(util => {
+            database.ref(`/config/${newMessage.guild.id}/ver`).once('value')
+            .then(ver => {
+               database.ref(`/config/${newMessage.guild.id}/wlcm`).once('value')
+                .then(wlcm => {
+                   database.ref(`/config/${newMessage.guild.id}/wmsg`).once('value')
+                    .then(msg => {
+                   database.ref(`/config/${newMessage.guild.id}/wchan`).once('value')
+                     .then(chan => {
+
+    if(!args[0]) {
+      let embed = new Discord.RichEmbed()
+      .setColor(config.embed_color)
+      .setTitle("Ustawienia")
+      .addField("Prefix: " + prefix.val(), "Aby zmienić <prefix>settings prefix <nowy prefix>")
+      .addField("Komenda do pingowania: " + pingi.val(), "Aby zmienić <prefix>settings pingi <on/off>")
+      .addField("Komendy administracyjne: "+util.val(),"Aby zmienić <prefix>settings util <on/off>")
+      .addField("Wiadomość powitalna: " + wlcm.val(),"Aby wyłączyć <prefix>settings welcome off\nAby właczyć <prefix>settings welcome <wiadomość powitalna>")
+      .setFooter(`Wersja Configu: ${ver.val()}`)
+      newMessage.channel.send({embed})
+    } else if(args[0] == 'prefix') {
+      if(args[1] == '') return newMessage.reply("Podaj Prefix")
+      database.ref(`/config/${newMessage.guild.id}`).set({
+        prefix: args[1],
+        pingi: pingi.val(),
+        util: util.val(),
+        wlcm: wlcm.val(),
+        wmsg: msg.val(),
+        wchan: chan.val(),
+        ver: ver.val()
+      });
+      newMessage.channel.send("Nowy Prefix to: " + args[1])
+    } else if (args[0] == 'pingi'){
+      if(args[1] == 'on'){
+        database.ref(`/config/${newMessage.guild.id}`).set({ 
+        prefix: prefix.val(),
+        pingi: true,
+        util: util.val(),
+        wlcm: wlcm.val(),
+        wmsg: msg.val(),
+        wchan: chan.val(),
+        ver: ver.val()
+        })
+        newMessage.channel.send("Komenda do pingowania jest teraz włączona")
+      } else if(args[1] == 'off'){
+        database.ref(`/config/${newMessage.guild.id}`).set({ 
+        prefix: prefix.val(),
+        pingi: false,
+        util: util.val(),
+        wlcm: wlcm.val(),
+        wmsg: msg.val(),
+        wchan: chan.val(),
+        ver: ver.val()
+        })
+        newMessage.channel.send("Komenda do pingowania jest teraz wyłączona")
+      } else {
+        newMessage.reply("Nie podałeś właściwej opcji")
+      } 
+    } else if(args[0] == 'util') {
+      if(args[1] == 'on'){
+        database.ref(`/config/${newMessage.guild.id}`).set({  
+          prefix: prefix.val(),
+          pingi: pingi.val(),
+          util: true,
+             wlcm: wlcm.val(),
+          wmsg: msg.val(),
+          wchan: chan.val(),
+          ver: ver.val()
+        })
+        newMessage.channel.send("Komendy administracyjne są teraz włączone")
+      } else if(args[1] == 'off'){
+          database.ref(`/config/${newMessage.guild.id}`).set({  
+          prefix: prefix.val(),
+          pingi: pingi.val(),
+          util: false,
+               wlcm: wlcm.val(),
+          wmsg: msg.val(),
+          wchan: chan.val(),
+          ver: ver.val()
+        })
+          newMessage.channel.send("Komendy administracyjne są teraz wyłączone")
+      } else {
+        newMessage.channel.send("Nie podałeś poprawnej opcji")
+      }
+    } else if(args[0] == 'welcome'){
+      if(args[1] == 'off'){
+        database.ref(`/config/${newMessage.guild.id}`).set({  
+          prefix: prefix.val(),
+          pingi: pingi.val(),
+          util: util.val(),
+          wlcm: false,
+          wmsg: msg.val(),
+          wchan: chan.val(),
+          ver: ver.val()
+        })
+        newMessage.channel.send("Wyłączono wiadomość powitalną")
+    } else {
+      database.ref(`/config/${newMessage.guild.id}`).set({  
+          prefix: prefix.val(),
+          pingi: pingi.val(),
+          util: util.val(),
+          wlcm: true,
+          wmsg: args.join(" ").replace("welcome",""),
+          wchan: `${newMessage.channel.id}`,
+          ver: ver.val()
+        })
+      newMessage.channel.send("**Wiadomość powitalna:** "+ args.join(" ").replace("welcome",""))
+    }
+  }
+        })
+        })
+     })
+    })
+    })
+    })    
+  })
+}
+//==================================================================================
+
+
+/*  if(command == 'note'){
+
+    var a = Math.floor(Math.random() *9) + 1
+    var b = Math.floor(Math.random() *9) + 1
+    var c = Math.floor(Math.random() *9) + 1
+    var d = Math.floor(Math.random() *9) + 1
+newMessage.channel.send(`${a}${b}${c}${d} <- oto kod twojej notatki, abyś go nie zapomniał przesyłam ci go na DM`)
+newMessage.author.send(`${a}${b}${c}${d} <- Kod do twojej notatki`)
+
+fs.writeFile(`./Notes/${a}${b}${c}${d}.txt`, args.join(" "), (err) => {
+  if (err) throw err;
+  })
+}
+if(command == 'get.note') {
+  fs.readFile(`./Notes/${args.join(" ")}.txt`, function (err, data){
+    let note = new Discord.RichEmbed()
+    .setColor(config.embed_color)
+    .setThumbnail('https://images.vexels.com/media/users/3/146695/isolated/preview/c31113aebbbf9c844d1caa832ad42cae-pinned-lined-sticky-note-by-vexels.png')
+    .addField("Notatka", `${data}`)
+    newMessage.channel.send({embed: note})
+  })
+}
+*/ 
+
+})
 })
 client.on('guildMemberRemove', member => {
   if(member.guild.id == '415917934268121118'){
