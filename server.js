@@ -88,6 +88,11 @@ switch (new Date().getDay()) {
 }
 client.on("ready", () => {
     const channelgeneral = client.channels.find("id", "460799362247950337", "461569251422109726");
+     setInterval(function(){
+        client.channels.get("459752987317764109").edit({name: `Serwery: ${client.guilds.size}`});
+  client.channels.get("459762461369827362").edit({name: `Użytkownicy: ${client.users.size}`});
+  client.channels.get("464340088613109760").edit({name: `Uptime: ${ms(client.uptime)}`})
+  },1000)
     client.user.setActivity("m!help (odświeżona wersja)", "https://www.twitch.tv/discordapp", {type: "STREAMING"});
     console.log('[client] Logowanie')
     console.log("[client] Wystartowano o " + time)
