@@ -33,5 +33,7 @@ module.exports.run = async (client, message, args) => {
 }
 module.exports.help = {
 	name: "avatar",
-  category: "info"
+  category: "info",
+  description:"Wysyła twój avatar albo osoby którąś oznaczyłeś",
+  use:"<prefix>avatar\n<prefix>avatar <oznacz osobę>"
 }

@@ -11,6 +11,8 @@ message.channel.send({embed: embed})
 }
 module.exports.help ={
   name: "achievement",
-  category: "photo"
+  category: "photo",
+  description:"Wysyła achievementa z twoim tekstem",
+  use:"<prefix>achievement <tekst>"
 }
 //`https://www.minecraftskinstealer.com/achievement/a.php?i=2&h=Achievement+Get%21&t=dwa+wyrazy`

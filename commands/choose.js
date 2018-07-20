@@ -17,5 +17,7 @@ module.exports.run = async (client, message, args) => {
 }
 module.exports.help = {
 	name: "choose",
-  category:"fun"
+  category:"fun",
+  description:"Wybiera pomiędzy 2 odpowiedziami oddzielonymi `|`",
+  use:"<prefix>choose <jedna odp> | <druga odp>"
 }

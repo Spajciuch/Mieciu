@@ -37,5 +37,7 @@ var firebase = require('firebase')
 }
 module.exports.help = {
 	name: "ban",
-  category:"admin"
+  category:"admin",
+  description:"Banuje osobę, którą oznaczysz",
+  use:"<prefix>ban <oznacz osobę>"
 }

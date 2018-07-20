@@ -15,5 +15,7 @@ message.channel.send({embed: ball})
 }
 module.exports.help = {
 	name: "8ball",
-  category:"fun"
+  category:"fun",
+  description:"Zadajesz pytanie a bot odpowiada (tak, nie)",
+  use:"<prefix>8ball <pytanie>"
 }

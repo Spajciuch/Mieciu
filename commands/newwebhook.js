@@ -8,3 +8,4 @@ module.exports.help = {
   name: "newhook",
   category:"util"
 }
+//https://canary.discordapp.com/api/webhooks/462664593429364746/b2RLryR4Pz_ar_2V0BcRT3YqxujihEpYispM_JRvFY_M6l86tfVqgoxalZQv-RkgA86R

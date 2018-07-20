@@ -16,5 +16,7 @@ ctx.fillText(args.join(" "),1,20)
 }
 module.exports.help = {
   name: "call",
-  category:"photo"
+  category:"photo",
+  description:"Wypisuje twój tekst w dymku",
+  use:"<prefix>call <tekst>"
 }

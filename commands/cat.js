@@ -12,5 +12,7 @@ module.exports.run = async (client, message, args) => {
 }
 module.exports.help = {
   name: "cat",
-  category:"fun"
+  category:"fun",
+  description:"Wysyła zdjęcie kota :3",
+  use:"<prefix>cat"
 }

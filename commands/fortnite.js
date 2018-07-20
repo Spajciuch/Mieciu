@@ -10,6 +10,7 @@ let gamemode = args.join(" ").split(" | ")[1]
 if(!gamemode == 'solo' || !gamemode == 'duo' || !gamemode == 'squad' || !gamemode == 'lifetime') return message.reply("Użycie: <username> <mode> <platform>")
 if(!username) return message.reply("Podaj nazwę użytkownika")
 let data = fortnite.user(username,platform).then(data => {
+console.log(data)
 let stats = data.stats
 if(gamemode == 'solo'){
   let solostats = stats.solo

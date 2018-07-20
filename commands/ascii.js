@@ -17,5 +17,7 @@ module.exports.run = async (client, message, args) => {
 }
 module.exports.help = {
   name: "ascii",
-  category:"fun"
+  category:"fun",
+  description:"Wysyła twój tekst jako ascii",
+  use:"<prefix>ascii <tekst>"
 }
