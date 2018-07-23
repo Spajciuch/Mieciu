@@ -4,7 +4,7 @@ module.exports.run = async (client, message, args, config) => {
     if(args.join(" ") == '') {
     const embed = {
   "description": guildNames,
-  "color": config.neoney_color,
+  "color"
   "author": {
     "name": "Guilds with me on them"
   },
