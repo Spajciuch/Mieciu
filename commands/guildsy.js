@@ -1,5 +1,6 @@
 const Discord = require('discord.js')
-module.exports.run = async (client, message, args, config) => {
+var config = require('../config.json')
+module.exports.run = async (client, message, args) => {
   const guildNames = client.guilds.map(g => g.name).join("\n");
     if(args.join(" ") == '') {
     const embed = {
