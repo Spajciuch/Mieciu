@@ -4,7 +4,7 @@ module.exports.run = async (client, message, args, config) => {
     if(args.join(" ") == '') {
     const embed = {
   "description": guildNames,
-  "color"
+  "color": config.neoney_color,
   "author": {
     "name": "Guilds with me on them"
   },
@@ -39,6 +39,5 @@ message.channel.send({ embed });
 }
 module.exports.help = {
   name: "guildsy",
-  category: "info"
+  category: "infoski"
 }
- 
