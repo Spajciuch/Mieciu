@@ -27,6 +27,7 @@ var fireconfig = {
   firebase.initializeApp(fireconfig);
   var database = firebase.database();
    client.on('message', message => {
+       if(message.channel.type == "dm") return
   database.ref(`/config/${message.guild.id}/ver`).once('value')
   .then(snapshot => { 
      if (snapshot.val() !== 3) {
@@ -106,6 +107,7 @@ client.on("ready", () => {
     channelgeneral.send({embed})
 });
 client.on("messageUpdate", (oldMessage, newMessage) => {
+    if(newMessage.channel.type == "dm") return
   if(!oldMessage.guild) return
   if(!newMessage.guild) return
   if(oldMessage.guild.id !== '415917934268121118' && oldMessage.guild.id !== '423545059666034689') return
@@ -507,6 +509,7 @@ client.on("voiceStateUpdate", (oldMember, newMember) => {
 
 const Jimp = require("jimp");
 client.on("message", async message => {
+    if(message.channel.type == "dm") return
   //================================================================================
   var fireprefix =''
 database.ref(`/config/${message.guild.id}/prefix`).once('value')
@@ -536,7 +539,7 @@ client.on("message", async message => {
   client.channels.get("464340088613109760").edit({name: `Uptime: ${ms(client.uptime)}`})
   //================================================================================
   var fireprefix =''
-  
+  if(message.channel.type == "dm") return
 database.ref(`/config/${message.guild.id}/prefix`).once('value')
 .then(snapshot => { 
   fireprefix = snapshot.val()
