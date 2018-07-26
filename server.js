@@ -713,18 +713,18 @@ if(command == 'get.note') {
 
 })
 });
-const music = new Music(client, {
+// const music = new Music(client, {
 
-   prefix: config.prefix,
-  youtubeKey: config.yt,
-  embedColor: 7506394,
-  enableQueueStat: true,
-  botAdmins: [316226442721755137, 367390191721381890],
-  clearOnLeave: true,
-  disableVolume: true,
-  djRole: "@everyone"
+//    prefix: config.prefix,
+//   youtubeKey: config.yt,
+//   embedColor: 7506394,
+//   enableQueueStat: true,
+//   botAdmins: [316226442721755137, 367390191721381890],
+//   clearOnLeave: true,
+//   disableVolume: true,
+//   djRole: "@everyone"
 
-});
+// });
 //=================================================================================
 client.on('guildMemberAdd', async member => { 
   database.ref(`/config/${member.guild.id}/wlcm`).once('value')
