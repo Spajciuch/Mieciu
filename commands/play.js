@@ -18,6 +18,11 @@ const broadcast = client.createVoiceBroadcast();
  broadcast.playStream(stream);
  const dispatcher = connection.playBroadcast(broadcast);
  })
+	let embed = new Discord.RichEmbed()
+	.setAuthor(result.first.title)
+	.setThumbnail(result.first.thumbnails.default.url)
+	.setColor(config.embed_color)
+	.setDescription(result.first.description)
 }
 module.exports.help = {
 	name: "play",
