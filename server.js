@@ -106,6 +106,7 @@ client.on("ready", () => {
     .addField("Data", `${d.getDate()}.${d.getMonth()+1}.${d.getFullYear()}`)
     .setColor(config.embed_color)
     channelgeneral.send({embed})
+    botspam.send({embed})
 });
 client.on("messageUpdate", (oldMessage, newMessage) => {
     if(newMessage.channel.type == "dm") return
