@@ -88,7 +88,8 @@ switch (new Date().getDay()) {
       day = "w Sobotę";
 }
 client.on("ready", () => {
-    const channelgeneral = client.channels.find("id", "460799362247950337", "461569251422109726", "472828529906679848");
+    const channelgeneral = client.channels.find("id", "460799362247950337", "461569251422109726");
+    const botspam = client.channels.find("id","472828529906679848")
      setInterval(function(){
         client.channels.get("459752987317764109").edit({name: `Serwery: ${client.guilds.size}`});
   client.channels.get("459762461369827362").edit({name: `Użytkownicy: ${client.users.size}`});
