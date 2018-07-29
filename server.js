@@ -735,7 +735,8 @@ client.on('guildMemberAdd', async member => {
         .then(msg => { 
         database.ref(`/config/${member.guild.id}/wchan`).once('value')
           .then(chan => { 
-      client.channels.get(chan.val()).send(member + ", " +msg.val())
+      var wlcm = msg.val()
+      client.channels.get(chan.val()).send(wlcm.replace("/member/", member))
   }) })
 })
 })
