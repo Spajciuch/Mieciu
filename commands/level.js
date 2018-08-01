@@ -26,7 +26,7 @@ var database = firebase.database()
 
         var snekfetch = require('snekfetch')
     const { createCanvas, loadImage } = require('canvas')
-const canvas = createCanvas(681, 356)
+const canvas = createCanvas(1024, 576)
 const ctx = canvas.getContext('2d')
 const bkg = await loadImage("./photos/card.png");
 ctx.drawImage(bkg, 0, 0, canvas.width, canvas.height);
@@ -34,29 +34,22 @@ ctx.drawImage(bkg, 0, 0, canvas.width, canvas.height);
 
   const { body: buffer } = await snekfetch.get(message.author.displayAvatarURL);
   const avt = await loadImage(buffer);
-  ctx.drawImage(avt, 26, 29, 116, 113);
-  ctx.fillStyle = '#adb2c2';
-    ctx.strokeStyle = '#adb2c2'; //b4c0ee
-    ctx.lineWidth = 3
+  ctx.drawImage(avt, 78, 67, 144, 144);
+  ctx.fillStyle = 'white';
     ctx.textBaseline = "top"
-    ctx.font=`30px "Autour One"`
+    ctx.font=`80px "Autour One"`
     var user = `${message.author.username}#${message.author.discriminator}`
     if(user.length > 10) ctx.font = `20px "Autour One"`
     //NICK
-    ctx.fillText(`${message.author.username}#${message.author.discriminator}`, 186,30)
-    ctx.strokeText(`${message.author.username}#${message.author.discriminator}`, 186,30)
+    ctx.fillText(`${message.author.username}#${message.author.discriminator}`, 254,56)
     //LEVEL
-    ctx.strokeStyle = '#707278'
-    ctx.fillStyle = '#707278'; //#707278
-    ctx.fillText(`${curlvl} Poziom`, 477,67)
-    ctx.strokeText(`${curlvl } Poziom`, 477,67)
-    //XP
-      ctx.fillText(`${curxp}XP`, 477,150)
-    ctx.strokeText(`${curxp}XP`, 477,150)
-    //XP DO NASTEPNEGO LVL 
-    ctx.font=`20px "Autour One"`
-      ctx.fillText(`${difference}XP brakuje`, 477,255)
-    ctx.strokeText(`${difference}XP brakuje`, 477,255)
+    ctx.fillStyle = '#7289da'; //#707278
+    ctx.fillText(`${curlvl}`, 170,435)
+    // //XP
+      ctx.fillText(`${curxp}`, 420,435)
+    // //XP DO NASTEPNEGO LVL 
+      ctx.fillText(`${difference}`, 750,435)
+
     const attachment = new Discord.Attachment(canvas.toBuffer(), 'card.png');
   message.channel.send(attachment)
     })
