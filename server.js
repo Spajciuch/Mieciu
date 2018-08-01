@@ -67,7 +67,7 @@ var fireconfig = {
 
 let curxp = data.val()
 let curlvl = level.val()
-let nxtLvl = level.val() * 300;
+let nxtLvl = level.val() * 10000;
 var add = curxp + xpAdd
 firebase.database().ref(`profile/${message.author.id}`).set({ 
 	xp:add,
