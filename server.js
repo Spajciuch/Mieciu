@@ -98,7 +98,7 @@ ctx.drawImage(bkg, 0, 0, canvas.width, canvas.height);
     //LEVEL 
     ctx.fillStyle = '#7289da';
     ctx.font=`100px "Autour One"`
-    ctx.fillText(`10`, 840,100)
+    ctx.fillText(curlvl+1, 840,100)
 
    
     const attachment = new Discord.Attachment(canvas.toBuffer(), 'card.png');
