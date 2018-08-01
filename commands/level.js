@@ -38,8 +38,7 @@ ctx.drawImage(bkg, 0, 0, canvas.width, canvas.height);
   ctx.fillStyle = 'white';
     ctx.textBaseline = "top"
     ctx.font=`80px "Autour One"`
-    var user = `${message.author.username}#${message.author.discriminator}`
-    if(user.length > 10) ctx.font = `20px "Autour One"`
+    
     //NICK
     ctx.fillText(`${message.author.username}#${message.author.discriminator}`, 254,56)
     //LEVEL
