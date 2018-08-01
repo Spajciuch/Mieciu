@@ -3,7 +3,7 @@ const config = require(`../config.json`)
 const snekfetch = require('snekfetch')
 module.exports.run = async (client, message, args) => {
 const { createCanvas, loadImage } = require('canvas')
-const canvas = createCanvas(500, 367)
+const canvas = createCanvas(681, 356)
 const ctx = canvas.getContext('2d')
 const bkg = await loadImage("./photos/menel.jpg");
 
@@ -24,7 +24,7 @@ if(message.mentions.members.first()) {
 } else {
 	ctx.drawImage(bkg, 0, 0, canvas.width, canvas.height);
 	ctx.beginPath();
-  	ctx.arc(150, 168, 93, 0, Math.PI * 2, false);
+  	ctx.arc(150, 168, 150, 0, Math.PI * 2, false);
   	ctx.closePath();
   	ctx.clip();
 

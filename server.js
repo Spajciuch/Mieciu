@@ -29,21 +29,97 @@ var fireconfig = {
    client.on('message', message => {
   database.ref(`/config/${message.guild.id}/ver`).once('value')
   .then(snapshot => { 
-     if (snapshot.val() !== 3) {
+     if (snapshot.val() !== 4) {
         database.ref(`/config/${message.guild.id}`).set({
-          prefix: "m!",
+          prefix: "c!",
           pingi: true,
           util: true,
           wmsg: "Witaj na serwerze :P",
           wlcm: false,
           wchan: null,
-          ver: 3
+          ver: 4
       })
-        message.channel.send("Wygenerowano config serwera, opcje pod komendą settings [wersja configu: 4]")
+        message.channel.send("Wygenerowano config serwera, opcje pod komendą settings [wersja configu: "+ snapshot.val() +" ]")
   }
+  database.ref(`/profile/${message.author.id}/xp`).once('value')
+  .then(exp => {
+    database.ref(`/profile/${message.author.id}/level`).once('value')
+      .then(level => {
+        if(exp.val() < 1) {
+      firebase.database().ref(`profile/${message.author.id}`).set({
+        xp:1,
+        level:1
+      })
+    }
+  })
+})
   })
 
-});
+})
+  client.on("message", message => {
+    if(message.author.bot) return
+    firebase.database().ref(`/profile/${message.author.id}/xp`).once("value")
+    .then(async data => {
+      firebase.database().ref(`/profile/${message.author.id}/level`).once("value")
+    .then(async level => {
+    let xpAdd = Math.floor(Math.random() * 7) + 8;
+// console.log(xpAdd);
+
+let curxp = data.val()
+let curlvl = level.val()
+let nxtLvl = level.val() * 300;
+var add = curxp + xpAdd
+firebase.database().ref(`profile/${message.author.id}`).set({ 
+  xp:add,
+  level: level.val()
+})
+if (nxtLvl <= data.val()) {
+    database.ref(`profile/${message.author.id}`).set({ 
+      xp:data.val(),
+      level:curlvl + 1
+    }) 
+    var snekfetch = require('snekfetch')
+  const { createCanvas, loadImage } = require('canvas')
+const canvas = createCanvas(681, 150)
+const ctx = canvas.getContext('2d')
+const bkg = await loadImage("./photos/scard.png");
+ctx.drawImage(bkg, 0, 0, canvas.width, canvas.height);
+
+
+  const { body: buffer } = await snekfetch.get(message.author.displayAvatarURL);
+  const avt = await loadImage(buffer);
+  ctx.drawImage(avt, 23, 45, 91, 88);
+  ctx.fillStyle = 'white';
+    ctx.strokeStyle = 'white'; //b4c0ee
+    ctx.lineWidth = 3
+    ctx.textBaseline = "top"
+    ctx.font=`20px "Autour One"`
+    var user = `${message.author.username}#${message.author.discriminator}`
+    if(user.length > 10) ctx.font = `20px "Autour One"`
+    //NICK
+  ctx.fillText(`${message.author.username}#${message.author.discriminator}`, 23,0)
+    ctx.strokeText(`${message.author.username}#${message.author.discriminator}`, 23,0)
+    //LEVEL
+    ctx.font=`50px "Autour One"`
+    ctx.fillText(`${curlvl+1} Poziom`, 211,50)
+    ctx.strokeText(`${curlvl+1} Poziom`, 211,50)
+   
+    const attachment = new Discord.Attachment(canvas.toBuffer(), 'card.png');
+  message.channel.send(attachment)
+}
+// fs.writeFile("./xp.json", JSON.stringify(xp), (err) => {
+//             if (err) console.log(err)
+
+
+
+            // Goes in commands fold in a file name "level.js"
+
+
+            
+  })
+    })
+})
+
 const Music = require('discord.js-musicbot-addon-v2-pl');
 client.on("guildCreate", guild => {
   // This event triggers when the bot joins a guild.
