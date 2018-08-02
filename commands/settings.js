@@ -31,8 +31,143 @@ module.exports.run = async (client, message, args) => {
       .addField("Komenda do pingowania: " + pingi.val(), `Aby zmienić ${fireprefix}settings pingi <on/off>`)
       .addField("Komendy administracyjne: "+util.val(),`Aby zmienić ${fireprefix}settings util <on/off>`)
       .addField("Powiadomienie o następnym poziomie: " + level.val(), `Aby zmienić ${fireprefix}settings lvl <on/off>`)
-      .addField("Wiadomość powitalna: " + wlcm.val(),`Aby wyłączyć <prefix>settings welcome off\nAby właczyć: ${fireprefix}settings welcome <wiadomość powitalna>`)
+      .addField("Wiadomość powitalna: " + wlcm.val(),"Aby wyłączyć <prefix>settings welcome off\nAby właczyć <prefix>settings welcome <wiadomość powitalna>")
       .setFooter(`Wersja Configu: ${ver.val()}`)
       message.channel.send({embed})
     } else if(args[0] == 'prefix') {
-      if(args[1]
+      if(args[1] == '') return message.reply("Podaj Prefix")
+      database.ref(`/config/${message.guild.id}`).set({
+        prefix: args[1],
+        pingi: pingi.val(),
+        util: util.val(),
+        wlcm: wlcm.val(),
+        wmsg: msg.val(),
+        wchan: chan.val(),
+        level: level.val(),
+        ver: ver.val()
+      });
+      message.channel.send("Nowy Prefix to: " + args[1])
+    } else if (args[0] == 'pingi'){
+      if(args[1] == 'on'){
+        database.ref(`/config/${message.guild.id}`).set({ 
+        prefix: prefix.val(),
+        pingi: true,
+        util: util.val(),
+        wlcm: wlcm.val(),
+        wmsg: msg.val(),
+        wchan: chan.val(),
+        level: level.val(),
+        ver: ver.val()
+        })
+        message.channel.send("Komenda do pingowania jest teraz włączona")
+      } else if(args[1] == 'off'){
+        database.ref(`/config/${message.guild.id}`).set({ 
+        prefix: prefix.val(),
+        pingi: false,
+        util: util.val(),
+        wlcm: wlcm.val(),
+        wmsg: msg.val(),
+        wchan: chan.val(),
+        level: level.val(),
+        ver: ver.val()
+        })
+        message.channel.send("Komenda do pingowania jest teraz wyłączona")
+      } else {
+        message.reply("Nie podałeś właściwej opcji")
+      } 
+    } else if(args[0] == 'util') {
+      if(args[1] == 'on'){
+        database.ref(`/config/${message.guild.id}`).set({  
+          prefix: prefix.val(),
+          pingi: pingi.val(),
+          util: true,
+             wlcm: wlcm.val(),
+          wmsg: msg.val(),
+          wchan: chan.val(),
+          level: level.val(),
+          ver: ver.val()
+        })
+        message.channel.send("Komendy administracyjne są teraz włączone")
+      } else if(args[1] == 'off'){
+          database.ref(`/config/${message.guild.id}`).set({  
+          prefix: prefix.val(),
+          pingi: pingi.val(),
+          util: false,
+               wlcm: wlcm.val(),
+          wmsg: msg.val(),
+          wchan: chan.val(),
+          level: level.val(),
+          ver: ver.val()
+        })
+          message.channel.send("Komendy administracyjne są teraz wyłączone")
+      } else {
+        message.channel.send("Nie podałeś poprawnej opcji")
+      }
+    } else if(args[0] == 'welcome'){
+      if(args[1] == 'off'){
+        database.ref(`/config/${message.guild.id}`).set({  
+          prefix: prefix.val(),
+          pingi: pingi.val(),
+          util: util.val(),
+          wlcm: false,
+          wmsg: msg.val(),
+          wchan: chan.val(),
+          level: level.val(),
+          ver: ver.val()
+        })
+        message.channel.send("Wyłączono wiadomość powitalną")
+    } else {
+      database.ref(`/config/${message.guild.id}`).set({  
+          prefix: prefix.val(),
+          pingi: pingi.val(),
+          util: util.val(),
+          wlcm: true,
+          wmsg: args.join(" ").replace("welcome",""),
+          wchan: `${message.channel.id}`,
+          level: level.val(),
+          ver: ver.val()
+        })
+      message.channel.send("**Wiadomość powitalna:** "+ args.join(" ").replace("welcome",""))
+    }
+  } else if(args[0] == 'lvl') {
+    if(args[1] == 'on'){
+      database.ref(`/config/${message.guild.id}`).set({
+        prefix: prefix.val(),
+          pingi: pingi.val(),
+          util: util.val(),
+          wlcm: wlcm.val(),
+          wmsg: args.join(" ").replace("welcome",""),
+          wchan: `${message.channel.id}`,
+          level: true,
+          ver: ver.val()
+      })
+      message.channel.send("Włączono powiadomienie o następnym poziomie")
+   } else if(args[1] == 'off'){
+       database.ref(`/config/${message.guild.id}`).set({
+        prefix: prefix.val(),
+          pingi: pingi.val(),
+          util: util.val(),
+          wlcm: wlcm.val(),
+          wmsg: args.join(" ").replace("welcome",""),
+          wchan: `${message.channel.id}`,
+          level: false,
+          ver: ver.val()
+      })
+       message.channel.send("Wyłączono powiadomienie o następnym poziomie")
+   } else {
+      message.reply("Nie podałeś poprawnej opcji")
+   }
+  }
+        })
+        })
+        })
+     })
+    })
+    })
+    })    
+  })
+}
+module.exports.help = {
+	name: "settings",
+	category:"settings"
+}
