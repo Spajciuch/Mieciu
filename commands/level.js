@@ -15,7 +15,7 @@ var database = firebase.database()
     let curxp = exp.val();
     let curlvl = level.val();
     let nxtLvlXp = curlvl * 300;
-    let difference = curxp - nxtLvlXp;
+    let difference = nxtLvlXp - curxp ;
 
     // let lvlEmbed = new Discord.RichEmbed()
     //         .setAuthor(message.author.username, message.author.displayAvatarURL)
