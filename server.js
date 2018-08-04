@@ -291,7 +291,6 @@ client.on('guildMemberAdd', async member => {
   if (!channel) return;
   // Send the message, mentioning the member
   var role = member.guild.roles.find('name', 'Klient')
-  channel.send(`${member}, witaj na serwerze Bar\nMamy nadzieję, że zostaniesz z nami na długo\nMożesz się przedstawić na kanale: <#425337860766302220>\nMiłego pobytu :P`);
   member.addRoles(role)
   const logi = member.guild.channels.find('name', 'logi')
   if(!logi) return
