@@ -10,7 +10,6 @@ module.exports.run = async (client, message, args) => {
 	
   if(args[0] == '@everyone') return;
   if(args[0] == '@here') return;
-  if(args[1] > 100000) return;
   var kto = args[0];
   var ile = args[1];
   for (i = 1; i <= ile; i++) {

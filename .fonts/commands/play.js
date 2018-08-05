@@ -25,10 +25,7 @@ console.log('Connected!')
 	.setColor(config.embed_color)
 	.setDescription(result.first.description)
 		message.channel.send({embed})
-<<<<<<< HEAD
 		console.log(broadcast)
-=======
->>>>>>> 896afc7f4378ced0e0bfec1cbae96344f72f3e25
  })
 } else if(args[0] == 'pause'){
 	broadcast.pause()
