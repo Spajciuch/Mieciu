@@ -29,11 +29,9 @@ var fireconfig = {
    client.on('message', message => {
   database.ref(`/config/${message.guild.id}/ver`).once('value')
   .then(snapshot => { 
-<<<<<<< HEAD
+
      if (snapshot.val() !== 4) {
-=======
      if (snapshot.val() !== 6) {
->>>>>>> 896afc7f4378ced0e0bfec1cbae96344f72f3e25
         database.ref(`/config/${message.guild.id}`).set({
           prefix: "c!",
           pingi: true,
@@ -41,17 +39,13 @@ var fireconfig = {
           wmsg: "Witaj na serwerze :P",
           wlcm: false,
           wchan: null,
-<<<<<<< HEAD
           ver: 4
-=======
 	level: true,
-          ver: 6
->>>>>>> 896afc7f4378ced0e0bfec1cbae96344f72f3e25
+          ver: 6 
       })
         message.channel.send("Wygenerowano config serwera, opcje pod komendą settings [wersja configu: "+ snapshot.val() +" ]")
   }
   database.ref(`/profile/${message.author.id}/xp`).once('value')
-<<<<<<< HEAD
   .then(exp => {
     database.ref(`/profile/${message.author.id}/level`).once('value')
       .then(level => {
@@ -62,7 +56,6 @@ var fireconfig = {
       })
     }
   })
-=======
 	.then(exp => {
 		database.ref(`/profile/${message.author.id}/level`).once('value')
 			.then(level => {
