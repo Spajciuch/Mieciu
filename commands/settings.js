@@ -3,7 +3,7 @@ const config = require(`../config.json`)
 module.exports.run = async (client, message, args) => {
 	var firebase = require('firebase')
 	var database = firebase.database()
- if(!message.member.hasPermission('MANAGE_GUILD')) return message.reply('Nie masz uprawnień')
+ 
    database.ref(`/config/${message.guild.id}/prefix`).once('value')
       .then(prefix => {
         database.ref(`/config/${message.guild.id}/pingi`).once('value')
@@ -22,8 +22,9 @@ module.exports.run = async (client, message, args) => {
                         .then(level => {
 
 
-
-    if(!args[0]) {
+if(args[0]) {if(!message.member.hasPermission('MANAGE_GUILD')) return message.reply('Nie masz uprawnień')}
+  else   if(!args[0]) {
+	
       let embed = new Discord.RichEmbed()
       .setColor(config.embed_color)
       .setTitle("Ustawienia")
