@@ -24,6 +24,7 @@ module.exports.run = async (client, message, args) => {
 
 	if(args[0]) if(!message.member.hasPermission('MANAGE_GUILD')) return message.reply('Nie masz uprawnień')
     if(!args[0]) {
+	    var fireprefix = prefix.val()
       let embed = new Discord.RichEmbed()
       .setColor(config.embed_color)
       .setTitle("Ustawienia")
