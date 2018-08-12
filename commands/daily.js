@@ -3,7 +3,7 @@ const config = require(`../config.json`)
 module.exports.run = async (client, message, args) => {
 	var firebase = require('firebase')
 	var database = firebase.database()
-	var ms = require('ms')
+	var ms = require('parse-ms')
 	var currencyFormatter = require('currency-formatter')
 	let cooldown = 8.64e+7; 
     let amount = 250; 
