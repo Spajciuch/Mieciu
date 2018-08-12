@@ -29,33 +29,20 @@ var fireconfig = {
    client.on('message', message => {
   database.ref(`/config/${message.guild.id}/ver`).once('value')
   .then(snapshot => { 
-
-     if (snapshot.val() !== 4) {
      if (snapshot.val() !== 6) {
         database.ref(`/config/${message.guild.id}`).set({
-          prefix: "c!",
+          prefix: "m!",
           pingi: true,
           util: true,
           wmsg: "Witaj na serwerze :P",
           wlcm: false,
           wchan: null,
-          ver: 4
 	level: true,
-          ver: 6 
+          ver: 6
       })
         message.channel.send("Wygenerowano config serwera, opcje pod komendą settings [wersja configu: "+ snapshot.val() +" ]")
   }
   database.ref(`/profile/${message.author.id}/xp`).once('value')
-  .then(exp => {
-    database.ref(`/profile/${message.author.id}/level`).once('value')
-      .then(level => {
-        if(exp.val() < 1) {
-      firebase.database().ref(`profile/${message.author.id}`).set({
-        xp:1,
-        level:1
-      })
-    }
-  })
 	.then(exp => {
 		database.ref(`/profile/${message.author.id}/level`).once('value')
 			.then(level => {
@@ -66,128 +53,10 @@ var fireconfig = {
 			})
 		}
 	})
->>>>>>> 896afc7f4378ced0e0bfec1cbae96344f72f3e25
 })
   })
 
 })
-  client.on("message", message => {
-<<<<<<< HEAD
-    if(message.author.bot) return
-    firebase.database().ref(`/profile/${message.author.id}/xp`).once("value")
-    .then(async data => {
-      firebase.database().ref(`/profile/${message.author.id}/level`).once("value")
-    .then(async level => {
-    let xpAdd = Math.floor(Math.random() * 7) + 8;
-=======
-  	if(message.author.bot) return
-  	firebase.database().ref(`/profile/${message.author.id}/xp`).once("value")
-  	.then(async data => {
-  		firebase.database().ref(`/profile/${message.author.id}/level`).once("value")
-  	.then(async level => {
-  	let xpAdd = Math.floor(Math.random() * 7) + 8;
->>>>>>> 896afc7f4378ced0e0bfec1cbae96344f72f3e25
-// console.log(xpAdd);
-
-let curxp = data.val()
-let curlvl = level.val()
-<<<<<<< HEAD
-let nxtLvl = level.val() * 300;
-var add = curxp + xpAdd
-firebase.database().ref(`profile/${message.author.id}`).set({ 
-  xp:add,
-  level: level.val()
-})
-if (nxtLvl <= data.val()) {
-    database.ref(`profile/${message.author.id}`).set({ 
-      xp:data.val(),
-      level:curlvl + 1
-    }) 
-    var snekfetch = require('snekfetch')
-  const { createCanvas, loadImage } = require('canvas')
-const canvas = createCanvas(681, 150)
-=======
-let nxtLvl = level.val() * 10000;
-var add = curxp + xpAdd
-firebase.database().ref(`profile/${message.author.id}`).set({ 
-	xp:add,
-	level: level.val()
-})
-if (nxtLvl <= data.val()) {
-    database.ref(`config/${message.guild.id}/level`).once("value")
-    .then(async lvl => {
-      if(lvl.val() == false) return
-    var snekfetch = require('snekfetch')
-	const { createCanvas, loadImage } = require('canvas')
-const canvas = createCanvas(1024, 284)
->>>>>>> 896afc7f4378ced0e0bfec1cbae96344f72f3e25
-const ctx = canvas.getContext('2d')
-const bkg = await loadImage("./photos/scard.png");
-ctx.drawImage(bkg, 0, 0, canvas.width, canvas.height);
-
-
-  const { body: buffer } = await snekfetch.get(message.author.displayAvatarURL);
-  const avt = await loadImage(buffer);
-<<<<<<< HEAD
-  ctx.drawImage(avt, 23, 45, 91, 88);
-  ctx.fillStyle = 'white';
-    ctx.strokeStyle = 'white'; //b4c0ee
-    ctx.lineWidth = 3
-    ctx.textBaseline = "top"
-    ctx.font=`20px "Autour One"`
-    var user = `${message.author.username}#${message.author.discriminator}`
-    if(user.length > 10) ctx.font = `20px "Autour One"`
-    //NICK
-  ctx.fillText(`${message.author.username}#${message.author.discriminator}`, 23,0)
-    ctx.strokeText(`${message.author.username}#${message.author.discriminator}`, 23,0)
-    //LEVEL
-    ctx.font=`50px "Autour One"`
-    ctx.fillText(`${curlvl+1} Poziom`, 211,50)
-    ctx.strokeText(`${curlvl+1} Poziom`, 211,50)
-   
-    const attachment = new Discord.Attachment(canvas.toBuffer(), 'card.png');
-  message.channel.send(attachment)
-}
-=======
-  ctx.drawImage(avt, 72, 58, 132, 132);
-  ctx.fillStyle = 'white';
-    ctx.textBaseline = "top"
-    ctx.font=`40px "Autour One"`
-    var user = `${message.author.username}#${message.author.discriminator}`
-    //NICK
- 	ctx.fillText(`${message.author.username}#${message.author.discriminator}`, 228,38)
-    //LEVEL 
-    ctx.fillStyle = '#7289da';
-    ctx.font=`100px "Autour One"`
-    ctx.fillText(curlvl +1, 840,100)
-
-   
-    const attachment = new Discord.Attachment(canvas.toBuffer(), 'card.png');
-  message.channel.send(attachment)
-
-}) 
->>>>>>> 896afc7f4378ced0e0bfec1cbae96344f72f3e25
-// fs.writeFile("./xp.json", JSON.stringify(xp), (err) => {
-//             if (err) console.log(err)
-
-
-
-            // Goes in commands fold in a file name "level.js"
-
-<<<<<<< HEAD
-
-            
-  })
-    })
-})
-
-=======
-}
-            
-  })
-  	})
-})
->>>>>>> 896afc7f4378ced0e0bfec1cbae96344f72f3e25
 const Music = require('discord.js-musicbot-addon-v2-pl');
 client.on("guildCreate", guild => {
   // This event triggers when the bot joins a guild.
@@ -296,14 +165,12 @@ if(commandfile) commandfile.run(client, newMessage, args);
 
 
 /*  if(command == 'note'){
-
     var a = Math.floor(Math.random() *9) + 1
     var b = Math.floor(Math.random() *9) + 1
     var c = Math.floor(Math.random() *9) + 1
     var d = Math.floor(Math.random() *9) + 1
 newMessage.channel.send(`${a}${b}${c}${d} <- oto kod twojej notatki, abyś go nie zapomniał przesyłam ci go na DM`)
 newMessage.author.send(`${a}${b}${c}${d} <- Kod do twojej notatki`)
-
 fs.writeFile(`./Notes/${a}${b}${c}${d}.txt`, args.join(" "), (err) => {
   if (err) throw err;
   })
@@ -541,7 +408,6 @@ database.ref(`/config/${message.guild.id}/prefix`).once('value')
     if(message.author.bot) return
  if(message.channel.name !== 'clev') return
   /* const Simsimi = require('simsimi');
-
  var simsimi = new Simsimi({
    key: '58a88d4c-9fe1-402c-942e-be0ec1ab3c32'
  })
@@ -589,14 +455,12 @@ if(commandfile) commandfile.run(client, message, args);
 
 
 /*  if(command == 'note'){
-
     var a = Math.floor(Math.random() *9) + 1
     var b = Math.floor(Math.random() *9) + 1
     var c = Math.floor(Math.random() *9) + 1
     var d = Math.floor(Math.random() *9) + 1
 message.channel.send(`${a}${b}${c}${d} <- oto kod twojej notatki, abyś go nie zapomniał przesyłam ci go na DM`)
 message.author.send(`${a}${b}${c}${d} <- Kod do twojej notatki`)
-
 fs.writeFile(`./Notes/${a}${b}${c}${d}.txt`, args.join(" "), (err) => {
   if (err) throw err;
   })
