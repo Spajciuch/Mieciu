@@ -63,6 +63,7 @@ database.ref(`/economy/${message.guild.id}/${message.author.id}/bucks`).once("va
 			}
 			// console.log(inv)
 		} else if(args[0] == 'init'){
+			if (!message.member.hasPermission("MANAGE_GUILD")) return message.reply("Nie masz uprawnień");
 			var tshp = args.join(" ").split(" | ")[0]
 			var shp = [tshp.replace("init","")]
 			var ipc = [args.join(" ").split(" | ")[1]]
