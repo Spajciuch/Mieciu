@@ -16,6 +16,7 @@
   "dependencies": {
     "array-sort": "^1.0.0",
     "axios": "0.18.0",
+    "parse-ms": "^2.0.0",
     "ascii": "^1.0.0",
     "ascii-art": "^1.4.3",
     "ascii-text-generator": "^1.0.5",
