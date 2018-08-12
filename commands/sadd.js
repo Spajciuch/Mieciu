@@ -1,7 +1,7 @@
 const Discord = require("discord.js");
 const config = require(`../config.json`)
 module.exports.run = async (client, message, args) => {
-	if (!message.member.hasPermission("MANAGE_SERVER")) return message.reply("Nie masz uprawnień");
+	if (!message.member.hasPermission("MANAGE_GUILD")) return message.reply("Nie masz uprawnień");
 	var firebase = require('firebase')
 	var database = firebase.database()
 	database.ref(`/store/${message.guild.id}/items`).once("value")
