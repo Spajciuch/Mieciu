@@ -35,7 +35,7 @@ module.exports.run = async (client, message, args) => {
 		//
 		let thumbup = new Discord.RichEmbed()
 		.setTitle("Waifu")
-		.setDescription(`Oceniam ${message.mentions.members.first().user.username} na ${result}/100 😭`)
+		.setDescription(`Oceniam ${message.mentions.members.first().user.username} na ${result}/100 🤔`)
 		.setColor(config.embed_color)
 
 		//
