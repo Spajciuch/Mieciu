@@ -1,5 +1,4 @@
 const Discord = require("discord.js");
-const google = require("google");
 var config = require('../config')
 var fs = require('fs')
 module.exports.run = async (client, message, args) => {
@@ -22,5 +21,5 @@ module.exports.run = async (client, message, args) => {
 }
 module.exports.help = {
   name: "fmk",
-  category:"util"
+  category:"fun"
 }
