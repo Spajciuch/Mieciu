@@ -27,6 +27,7 @@ var fireconfig = {
   firebase.initializeApp(fireconfig);
   var database = firebase.database();
    client.on('message', message => {
+	   if(message.author.bot) return
 	   if(message.channel.type == "dm") return message.reply("Tylko na serwerach")
   database.ref(`/config/${message.guild.id}/ver`).once('value')
   .then(snapshot => { 
