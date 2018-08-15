@@ -27,6 +27,7 @@ var fireconfig = {
   firebase.initializeApp(fireconfig);
   var database = firebase.database();
    client.on('message', message => {
+	   if(message.channel.type == "dm") return message.reply("Tylko na serwerach")
   database.ref(`/config/${message.guild.id}/ver`).once('value')
   .then(snapshot => { 
      if (snapshot.val() !== 6) {
@@ -330,6 +331,7 @@ client.on('roleCreate', role => {
   channel.send({embed: embed})
 });
 client.on("messageDelete",async message => {
+	if(message.channel.type == "dm") return
 if(message.guild.id !== '415917934268121118' && message.guild.id !=='423545059666034689') return
 const channel = message.guild.channels.find('name', 'logi');
 if(!channel) return
