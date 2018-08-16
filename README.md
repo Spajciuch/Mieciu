@@ -1,6 +1,6 @@
 # Mieciu
 
-### Mieciu jest polskim botem używającym biblioteki discord.js 
+### Mieciu jest polskim botem używającym bibliotekę discord.js 
 Masz jakieś problemy?, [serwer pomocy](https://discord.gg/jjNfaHM)
 
 ### Do zrobienia
