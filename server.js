@@ -5,15 +5,6 @@ const os = require('os');
 const dev = client.users.get('367390191721381890');
 const fs = require('fs')
 client.commands = new Discord.Collection()
-const jedzenie = require('./Losowanie/smacznego.json')
-const hej = require('./Losowanie/witaj.json')
-const papa = require('./Losowanie/dobranoc.json')
-
-const modp = require ('./Losowanie/test.json')
-
-const patg = require ('./Giphy/pat.json')
-const slapg  = require('./Giphy/slap.json')
-const punchg = require('./Giphy/punch.json')
 const ms = require('ms')
 var firebase = require('firebase')
 var fireconfig = {
