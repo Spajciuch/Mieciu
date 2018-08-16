@@ -16,6 +16,7 @@ module.exports.run = async (client, message, args) => {
 			database.ref(`warns/${message.guild.id}/${member.id}`).set({
 				warns:warn+1
 			})
+			message.reply(member + "został zgłoszony " + `${warn+1}/5`)
 			if(warn == 4){
 				 if(!member.bannable) return message.guild.owner.send(`${member} dostał 5 ostrzeżeń, ale nie mogę go zbanować`)
 				member.ban("Dostał 5 ostrzeżeń")
