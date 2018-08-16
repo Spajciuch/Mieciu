@@ -1,0 +1,18 @@
+{
+	"jobs":
+	[
+		"lekarz",
+		"policjant",
+		"strażak",
+		"nauczyciel",
+		"majster"
+	],
+	"payment":
+	[
+		"300",
+		"310",
+		"200",
+		"100",
+		"50"
+	]
+}
