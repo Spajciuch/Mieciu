@@ -1,7 +1,7 @@
 const Discord = require('discord.js')
 var config = require('../config.json')
 module.exports.run = async (client, message, args) => {
-  if(message.author.id !== "367390191721381890")
+  if(message.author.id !== "367390191721381890")return
   const guildNames = client.guilds.map(g => g.name).join("\n");
     if(args.join(" ") == '') {
     const embed = {
