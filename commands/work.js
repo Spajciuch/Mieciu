@@ -25,7 +25,7 @@ module.exports.run = async (client, message, args) => {
 	var jobs = require('../config/jobs.json')
 	var job = jobs.jobs
 	var payment = jobs.payment
-	var which = Math.floor(Math.random() * 5);
+	var which = Math.floor(Math.random() * 7);
 	// console.log(job[which]+"\n"+payment[which])
 	database.ref(`/economy/${message.guild.id}/${message.author.id}`).set({
 				inventory:inventory.val(),

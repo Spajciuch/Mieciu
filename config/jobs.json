@@ -1,18 +1,22 @@
 {
 	"jobs":
 	[
-		"lekarz",
-		"policjant",
-		"strażak",
-		"nauczyciel",
-		"majster"
+		"healer",
+		"mag lvl 90",
+		"FBI",
+		"rudy",
+		"majster",
+		"cygan",
+		"krzesło"
 	],
 	"payment":
 	[
-		"300",
-		"310",
-		"200",
-		"100",
-		"50"
+		"0",
+		"1000",
+		"198",
+		"69",
+		"50",
+		"4",
+		"400"
 	]
 }
