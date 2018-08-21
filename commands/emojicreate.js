@@ -5,5 +5,7 @@ module.exports.run = async (client, message, args) => {
 }
 module.exports.help = {
   name: "emojicreate",
-  category: "util"
+  category: "util",
+  description:"Tworzy emoji",
+  use:"<prefix>emojicreate <url> <nazwa>"
 }

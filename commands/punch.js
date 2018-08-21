@@ -27,5 +27,7 @@ else {
 }
 module.exports.help = {
 	name: "punch",
-  category:"fun"
+  category:"fun",
+  description:"Wysyła gifa punch",
+  use:"<prefix>punch <osoba>"
 }

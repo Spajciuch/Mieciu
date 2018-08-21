@@ -18,5 +18,7 @@ module.exports.run = async (client, message, args) => {
 }
 module.exports.help = {
   name: "qr",
-  category:"util"
+  category:"util",
+  description:"Wysyła customizowany qr",
+  use:"<prefix>qr <tekst>"
 }

@@ -8,5 +8,7 @@ module.exports.run = async (client, message, args) => {
 }
 module.exports.help = {
 	name: "invite",
-	category:"info"
+	category:"info",
+  description:"Podaje ci link do  zaproszenia bota",
+  use:"<prefix>invite"
 }

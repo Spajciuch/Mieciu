@@ -51,5 +51,7 @@ message.delete()
 }
 module.exports.help = {
   name: "mail",
-  category:"util"
+  category:"util",
+  description:"Wysyła wiadomość mail",
+  use:"<prefix>mail <odbiorca> | <temat> | <treść>"
 }

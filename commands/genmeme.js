@@ -81,5 +81,7 @@ loadImage(bg).then((image) => {
 }
 module.exports.help = {
 	name: "genmeme",
-	category:"photo"
+	category:"photo",
+  description:"Generuje meme z avatarem",
+  use:"<prefix>genmeme <osoba> | <tekst góra> | <tekst dół>"
 }

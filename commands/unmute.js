@@ -41,5 +41,7 @@ exports.conf = {
 
 module.exports.help = {
     name: "unmute",
-    category:"admin"
+    category:"admin",
+  description:"Odcisza użytkownika",
+  use:"<prefix>unmute <osoba>"
 }

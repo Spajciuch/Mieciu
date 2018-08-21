@@ -15,5 +15,7 @@ module.exports.run = async (client, message, args) => {
 }
 module.exports.help = {
 	name: "settopic",
-	category:"admin"
+	category:"admin",
+  description:"Zmienia temat kanału",
+  use:"<prefix>settopic <temat>"
 }

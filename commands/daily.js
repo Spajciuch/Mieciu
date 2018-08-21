@@ -59,5 +59,7 @@ module.exports.run = async (client, message, args) => {
 }
 module.exports.help = {
 	name: "daily",
-	category:"economy"
+	category:"economy",
+  description:"Dodaje codziennie 250M$ do twojego konta",
+  use:"<prefix>daily"
 }

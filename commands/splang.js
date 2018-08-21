@@ -5,5 +5,7 @@ module.exports.run = async (client, message, args) =>{
 }
 module.exports.help = {
   name: "supportet.languages",
-  category:"info"
+  category:"info",
+  description:"Pokazuje wspierane języki przez translatora",
+  use:"<prefix>supportet.languages"
 }

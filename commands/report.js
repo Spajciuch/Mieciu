@@ -26,5 +26,7 @@ module.exports.run = async (client, message, args) => {
 
 module.exports.help = {
   name: "report",
-  category:"util"
+  category:"util",
+  description:"Warnuje użytkownika <5 warnów to ban>",
+  use:"<prefix>warn <osoba>"
 }

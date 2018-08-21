@@ -50,5 +50,7 @@ exports.conf = {
 
 module.exports.help = {
     name: "mute",
-    category:"admin"
+    category:"admin",
+  description:"Mutuje osobe na określony czas",
+  use:"<prefix>mute <osoba> <czas>"
 }

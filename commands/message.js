@@ -16,6 +16,8 @@
   }
   module.exports.help = {
       name: "getmsg",
-      category:"util"
+      category:"util",
+  description:"Pokazuje daną wiadomość",
+  use:"<prefix>getmsg <ID>"
   }
 

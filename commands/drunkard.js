@@ -38,5 +38,7 @@ if(message.mentions.members.first()) {
 }
 module.exports.help = {
 	name: "drunkard",
-	category:"photo"
+	category:"photo",
+  description:"Wysyła zdjęcie menela z twoim avatarem",
+  use:"<prefix>drunkard"
 }

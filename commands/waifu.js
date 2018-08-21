@@ -3,7 +3,6 @@ const config = require(`../config.json`)
 module.exports.run = async (client, message, args) => {
 	let result = Math.floor((Math.random() * 100) + 0);
 	if(message.mentions.members.first()) {
-		if(message.mentions.members.first().id == "283295308958662656") result = '101'
 		let awesome = new Discord.RichEmbed()
 		.setTitle("Waifu")
 		.setDescription(`Oceniam ${message.mentions.members.first().user.username} na ${result}/100 <:rip:452759223697145856>`)
@@ -36,7 +35,7 @@ module.exports.run = async (client, message, args) => {
 		//
 		let thumbup = new Discord.RichEmbed()
 		.setTitle("Waifu")
-		.setDescription(`Oceniam ${message.mentions.members.first().user.username} na ${result}/100 🤔`)
+		.setDescription(`Oceniam ${message.mentions.members.first().user.username} na ${result}/100 😭`)
 		.setColor(config.embed_color)
 
 		//
@@ -54,7 +53,6 @@ module.exports.run = async (client, message, args) => {
 		if(result <= 30 ) return message.channel.send({embed:worse})
 		if(result >= 30 ) return message.channel.send({embed:worse})
 	} else {
-		if(message.author.id == "283295308958662656") result = '101'
 		let awesome = new Discord.RichEmbed()
 		.setTitle("Waifu")
 		.setDescription(`Oceniam ${message.author.username} na ${result}/100 <:rip:452759223697145856>`)
@@ -110,5 +108,7 @@ module.exports.run = async (client, message, args) => {
 }
 module.exports.help = {
 	name: "waifu",
-	category:"fun"
+	category:"fun",
+  description:"Ocenia daną osobe jako waifu",
+  use:"<prefix>waifu <osoba>"
 }

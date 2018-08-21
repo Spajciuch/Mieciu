@@ -39,5 +39,7 @@ module.exports.run = async (client, message, args) => {
 }
 module.exports.help = {
 	name: "kick",
-  category:"admin"
+  category:"admin",
+  description:"Kickuje osobę",
+  use:"<prefix>kick <osoba>"
 }

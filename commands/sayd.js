@@ -11,5 +11,7 @@ if (message.content.includes('@here')) return message.reply("Mnie nie wrobisz")
 }
 module.exports.help = {
 	name: "sayd",
-	category:"fun"
+	category:"fun",
+  description:"Wysyła twój tekst",
+  use:"<prefix>sayd <tekst>"
 }

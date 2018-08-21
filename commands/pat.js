@@ -27,5 +27,7 @@ else {
 }
 module.exports.help = {
 	name: "pat",
-  category:"fun"
+  category:"fun",
+  description:"Wysyła gifa pat pat",
+  use:"<prefix>pat <osoba>"
 }

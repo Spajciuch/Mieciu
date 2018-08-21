@@ -18,5 +18,7 @@ module.exports.run = async (client, message, args) => {
 }
 module.exports.help = {
 	name: "addrole",
-	category:"admin"
+	category:"admin",
+  description:"Dodaje role oznaczonej osobie",
+  use:"<prefix>addrole /oznacz/ /nazwa roli/"
 }

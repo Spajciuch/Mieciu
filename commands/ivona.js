@@ -7,5 +7,7 @@ module.exports.run = async (client, message, args) =>{
 }
 module.exports.help = {
   name: "ivona",
-  category:"fun"
+  category:"fun",
+  description:"Wysyła twój tekst jako TTS",
+  use:"<prefix>ivona <tekst>"
 }

@@ -98,5 +98,7 @@ message.channel.send(embed)
 });}
 module.exports.help = {
   name: "fortnite",
-  category:"info"
+  category:"info",
+  description:"Pokazuje statystyki w Fortnite",
+  use:"<prefix>fortnite <username> | <mode> | <platfortma>"
 }

@@ -15,5 +15,7 @@ return message.reply("Nie masz uprawnień")
 }
 module.exports.help = {
   name: "ssname",
-  category:"admin"
+  category:"admin",
+  description:"Zmienia nazwę serwera",
+  use:"<prefix>ssname <nazwa>"
 }

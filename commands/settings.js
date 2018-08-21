@@ -3,7 +3,7 @@ const config = require(`../config.json`)
 module.exports.run = async (client, message, args) => {
 	var firebase = require('firebase')
 	var database = firebase.database()
- 
+ if(!message.member.hasPermission('MANAGE_GUILD')) return message.reply('Nie masz uprawnień')
    database.ref(`/config/${message.guild.id}/prefix`).once('value')
       .then(prefix => {
         database.ref(`/config/${message.guild.id}/pingi`).once('value')
@@ -20,11 +20,13 @@ module.exports.run = async (client, message, args) => {
                      .then(chan => {
                       database.ref(`/config/${message.guild.id}/level`).once("value")
                         .then(level => {
+                          database.ref(`/config/${message.guild.id}/antiraid`).once("value")
+                        .then(antiraid => {
+                          database.ref(`/config/${message.guild.id}/adchan`).once("value")
+                        .then(adchan => {
 
 
-	if(args[0]) if(!message.member.hasPermission('MANAGE_GUILD')) return message.reply('Nie masz uprawnień')
     if(!args[0]) {
-	    var fireprefix = prefix.val()
       let embed = new Discord.RichEmbed()
       .setColor(config.embed_color)
       .setTitle("Ustawienia")
@@ -33,6 +35,7 @@ module.exports.run = async (client, message, args) => {
       .addField("Komendy administracyjne: "+util.val(),`Aby zmienić ${fireprefix}settings util <on/off>`)
       .addField("Powiadomienie o następnym poziomie: " + level.val(), `Aby zmienić ${fireprefix}settings lvl <on/off>`)
       .addField("Wiadomość powitalna: " + wlcm.val(),"Aby wyłączyć <prefix>settings welcome off\nAby właczyć <prefix>settings welcome <wiadomość powitalna>")
+      .addField("Antiraid")
       .setFooter(`Wersja Configu: ${ver.val()}`)
       message.channel.send({embed})
     } else if(args[0] == 'prefix') {
@@ -45,6 +48,8 @@ module.exports.run = async (client, message, args) => {
         wmsg: msg.val(),
         wchan: chan.val(),
         level: level.val(),
+        adchan: adchan.val(),
+        antiraid:antiraid.val(),
         ver: ver.val()
       });
       message.channel.send("Nowy Prefix to: " + args[1])
@@ -58,6 +63,8 @@ module.exports.run = async (client, message, args) => {
         wmsg: msg.val(),
         wchan: chan.val(),
         level: level.val(),
+        adchan: adchan.val(),
+        antiraid:antiraid.val(),
         ver: ver.val()
         })
         message.channel.send("Komenda do pingowania jest teraz włączona")
@@ -70,6 +77,8 @@ module.exports.run = async (client, message, args) => {
         wmsg: msg.val(),
         wchan: chan.val(),
         level: level.val(),
+        adchan: adchan.val(),
+        antiraid:antiraid.val(),
         ver: ver.val()
         })
         message.channel.send("Komenda do pingowania jest teraz wyłączona")
@@ -86,6 +95,8 @@ module.exports.run = async (client, message, args) => {
           wmsg: msg.val(),
           wchan: chan.val(),
           level: level.val(),
+          adchan: adchan.val(),
+        antiraid:antiraid.val(),
           ver: ver.val()
         })
         message.channel.send("Komendy administracyjne są teraz włączone")
@@ -98,6 +109,8 @@ module.exports.run = async (client, message, args) => {
           wmsg: msg.val(),
           wchan: chan.val(),
           level: level.val(),
+          adchan: adchan.val(),
+        antiraid:antiraid.val(),
           ver: ver.val()
         })
           message.channel.send("Komendy administracyjne są teraz wyłączone")
@@ -114,6 +127,8 @@ module.exports.run = async (client, message, args) => {
           wmsg: msg.val(),
           wchan: chan.val(),
           level: level.val(),
+          adchan: adchan.val(),
+        antiraid:antiraid.val(),
           ver: ver.val()
         })
         message.channel.send("Wyłączono wiadomość powitalną")
@@ -126,6 +141,8 @@ module.exports.run = async (client, message, args) => {
           wmsg: args.join(" ").replace("welcome",""),
           wchan: `${message.channel.id}`,
           level: level.val(),
+          adchan: adchan.val(),
+        antiraid:antiraid.val(),
           ver: ver.val()
         })
       message.channel.send("**Wiadomość powitalna:** "+ args.join(" ").replace("welcome",""))
@@ -137,9 +154,11 @@ module.exports.run = async (client, message, args) => {
           pingi: pingi.val(),
           util: util.val(),
           wlcm: wlcm.val(),
-          wmsg: args.join(" ").replace("welcome",""),
-          wchan: `${message.channel.id}`,
+          wmsg: msg.val(),
+          wchan: chan.val(),
           level: true,
+          adchan: adchan.val(),
+        antiraid:antiraid.val(),
           ver: ver.val()
       })
       message.channel.send("Włączono powiadomienie o następnym poziomie")
@@ -152,13 +171,59 @@ module.exports.run = async (client, message, args) => {
           wmsg: args.join(" ").replace("welcome",""),
           wchan: `${message.channel.id}`,
           level: false,
+          adchan: adchan.val(),
+        antiraid:antiraid.val(),
           ver: ver.val()
       })
        message.channel.send("Wyłączono powiadomienie o następnym poziomie")
    } else {
       message.reply("Nie podałeś poprawnej opcji")
    }
-  }
+  } else if(args[0] == 'antiraid'){
+      if(args[1] == 'on'){
+        database.ref(`/config/${message.guild.id}`).set({
+        prefix: prefix.val(),
+          pingi: pingi.val(),
+          util: util.val(),
+          wlcm: wlcm.val(),
+          wmsg: msg.val(),
+          wchan: chan.val(), 
+          level: level.val(),
+          adchan: adchan.val(),
+          antiraid:true,
+          ver: ver.val()
+      })
+        message.reply("Antiraid został włączony")
+      } else if(args[1] == 'off'){
+        database.ref(`/config/${message.guild.id}`).set({
+        prefix: prefix.val(),
+          pingi: pingi.val(),
+          util: util.val(),
+          wlcm: wlcm.val(),
+          wmsg: msg.val(),
+          wchan: chan.val(),
+          level: level.val(),
+          adchan: adchan.val(),
+          antiraid:false,
+          ver: ver.val()
+      })
+        message.reply("Antiraid został wyłączony")
+      }
+ } else if(args[0] == 'adchan'){
+  database.ref(`/config/${message.guild.id}`).set({
+        prefix: prefix.val(),
+          pingi: pingi.val(),
+          util: util.val(),
+          wlcm: wlcm.val(),
+          wmsg: msg.val(),
+          wchan: chan.val(),
+          level: level.val(),
+          adchan: args.join(" ").replace("<#","").replace(">","").replace("adchan",""),
+          antiraid:antiraid.val(),
+          ver: ver.val()
+      })
+        message.reply("Kanał z reklamami został wybrany")
+ }
         })
         })
         })
@@ -167,6 +232,8 @@ module.exports.run = async (client, message, args) => {
     })
     })    
   })
+})
+})
 }
 module.exports.help = {
 	name: "settings",

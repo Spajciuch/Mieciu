@@ -38,5 +38,7 @@ if(message.mentions.members.first()) {
 }
 module.exports.help = {
 	name: "shit",
-	category:"photo"
+	category:"photo",
+  description:"Wysyła twoje zdjęcie w toalecie",
+  use:"<prefix>shit <osoba>"
 }

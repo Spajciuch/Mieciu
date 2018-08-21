@@ -1,7 +1,7 @@
 const Discord = require("discord.js");
 const config = require(`../config.json`)
 module.exports.run = async (client, message, args) => {
-	if (!message.member.hasPermission("MANAGE_GUILD")) return message.reply("Nie masz uprawnień");
+	if (!message.member.hasPermission("MANAGE_SERVER")) return message.reply("Nie masz uprawnień");
 	var firebase = require('firebase')
 	var database = firebase.database()
 	database.ref(`/store/${message.guild.id}/items`).once("value")
@@ -21,6 +21,7 @@ module.exports.run = async (client, message, args) => {
 			})
 			message.channel.send(`Dodano **${str.replace("role","")}** do sklepu za cenę **${args.join(" ").split(" | ")[1]}M$**`)
 			} else {
+			if(isNaN(args.join(" ").split(" | ")[1])) return message.reply("po kresce (`|`) podaj cene")
 			shop[shop.length] = args.join(" ").split(" | ")[0]
 			pce[pce.length]  = args.join(" ").split(" | ")[1]
 			// console.log(pce)
@@ -35,5 +36,7 @@ module.exports.run = async (client, message, args) => {
 }
 module.exports.help = {
 	name: "storeadd",
-	category:"economy"
+	category:"economy",
+  description:"Dodaje item do sklepu",
+  use:"<prefix>sadd <item> | <cena>"
 }

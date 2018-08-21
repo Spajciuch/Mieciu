@@ -10,5 +10,7 @@ giphyRandom.get({ tag: args.join(" ")})
 }
 module.exports.help = {
 	name: "gif",
-	category:"fun"
+	category:"fun",
+  description:"Wyszukuje gifa",
+  use:"<prefix>gif <tag>"
 }

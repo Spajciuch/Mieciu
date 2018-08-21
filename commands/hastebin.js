@@ -9,5 +9,7 @@ module.exports.run = async (client, message, args) => {
 }
 module.exports.help = {
   name: "hastebin",
-  category:"util"
+  category:"util",
+  description:"Podaje twój tekst na hastebin",
+  use:"<prefix>hastebin <tekst>"
 }

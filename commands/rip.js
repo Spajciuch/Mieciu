@@ -37,5 +37,7 @@ const background = await loadImage(bg);
 }
 module.exports.help = {
   name: "rip",
-  category:"photo"
+  category:"photo",
+  description:"Wysyła nagrobek",
+  use:"<prefix>rip <osoba>"
 }

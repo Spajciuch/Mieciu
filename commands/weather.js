@@ -25,5 +25,7 @@ module.exports.run = async (client, message, args) => {
 
 module.exports.help = {
   name: "weather",
-  category:"info"
+  category:"info",
+  description:"Pokazuje pogode",
+  use:"<prefix>weather <miejscowość>"
 }

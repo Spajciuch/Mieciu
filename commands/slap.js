@@ -29,5 +29,7 @@ let slap = new Discord.RichEmbed()
 }
 module.exports.help = {
 	name: "slap",
-  category:"fun"
+  category:"fun",
+  description:"Wysyła gif slap",
+  use:"<prefix>slap <osoba>"
 }

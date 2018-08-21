@@ -13,6 +13,7 @@ module.exports.run = async (client, message, args) => {
           .then(async lastwork => {
 	var bucks = data.val()
 	let member = message.mentions.members.first();
+	if(isNaN(args[1])) return message.reply("na drugim miejscu podaj liczbę")
 	if(args[1] > bucks) return message.reply("Nie masz tyle M$")
 	bucks = bucks - args[1]
 	database.ref(`/economy/${message.guild.id}/${message.author.id}`).set({
@@ -47,5 +48,7 @@ module.exports.run = async (client, message, args) => {
 }
 module.exports.help = {
 	name: "give",
-	category:"economy"
+	category:"economy",
+  description:"Przelewanie M$",
+  use:"<prefix>give /osoba/ /liczba M$/"
 }

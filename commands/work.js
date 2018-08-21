@@ -46,5 +46,7 @@ module.exports.run = async (client, message, args) => {
 }
 module.exports.help = {
 	name: "work",
-	category:"economy"
+	category:"economy",
+  description:"Dostajesz M$ co 3h za pracę",
+  use:"<prefix>work"
 }

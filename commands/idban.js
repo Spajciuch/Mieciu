@@ -15,5 +15,7 @@ module.exports.run = async (client, message, args) =>{
 }
 module.exports.help = {
   name: "id.ban",
-  category:"admin"
+  category:"admin",
+  description:"Banuje osobe po id",
+  use:"<prefix>id.ban <ID osoby>"
 }

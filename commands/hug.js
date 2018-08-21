@@ -24,5 +24,7 @@ module.exports.run = async (client, message, args) => {
 }
 module.exports.help = {
 	name: "hug",
-  category:"fun"
+  category:"fun",
+  description:"Wysyła gif przytulania",
+  use:"<prefix>hug <osoba>"
 }

@@ -10,5 +10,7 @@ hook.send(args.join(" ").slice(args[0].length));
 }
 module.exports.help = {
 	name: "writehook",
-	category:"fun"
+	category:"fun",
+  description:"Piszesz za pomocą webhooka",
+  use:"<prefix>writehook <link> <tekst>"
 }

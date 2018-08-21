@@ -20,5 +20,7 @@ module.exports.run = async (client, message, args) =>{
 }
 module.exports.help = {
   name: "role.color",
-  category:"admin"
+  category:"admin",
+  description:"Zmienia kolor roli",
+  use:"<prefix>role <nazwa> | <hex>"
 }

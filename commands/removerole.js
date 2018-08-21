@@ -20,5 +20,7 @@ var firebase = require('firebase')
 }
 module.exports.help = {
 	name: "removerole",
-	category:"admin"
+	category:"admin",
+  description:"Usuwa rolę użytkownikowi",
+  use:"<prefix>removerole <osoba> <rola>"
 }

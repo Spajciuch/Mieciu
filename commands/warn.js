@@ -26,5 +26,7 @@ module.exports.run = async (client, message, args) => {
 }
 module.exports.help = {
 	name: "warn",
-	category:"admin"
+	category:"admin",
+  description:"Zgłasza użytkownika <5 ostrzeżeń ban>",
+  use:"<prefix>supportet.languages"
 }

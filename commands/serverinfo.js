@@ -58,6 +58,8 @@ module.exports.run = async (client, message, args) => {
 
 }
 module.exports.help = {
-  name: "server.info",
-  category:"info"
+  name: "serverinfo",
+  category:"info",
+  description:"Podaje informacje o serwerze",
+  use:"<prefix>serverinfo"
 }

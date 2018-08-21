@@ -14,5 +14,7 @@ message.guild.setIcon(args.join(" "))
 }
 module.exports.help = {
   name: "set.icon",
-  category:"admin"
+  category:"admin",
+  description:"Ustawia ikonke serwera",
+  use:"<prefix>set.icon <url>"
 }

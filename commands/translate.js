@@ -10,5 +10,7 @@ translate(args.join(" ").split(" | ")[0],args.join(" ").split(" | ")[1].toUpperC
 }
 module.exports.help = {
   name: "translate",
-  category:"util"
+  category:"util",
+  description:"Tłumaczy tekst",
+  use:"<prefix>translate <tekst> | <język docelowy>"
 }

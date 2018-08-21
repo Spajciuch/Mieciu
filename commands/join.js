@@ -7,7 +7,7 @@ client.emit('guildMemberAdd', message.member || await message.guild.fetchMember(
 }
 module.exports.help = {
   name: "join",
-  category:"info"
+  category:"inssfo"
 }
 /*ctx.drawImage(image, 10 ,20, canvas.width, canvas.height)
 

@@ -15,5 +15,7 @@ module.exports.run = async (client, message, args) =>{
 }
 module.exports.help = {
   name: "create.role",
-  category:"admin"
+  category:"admin",
+  description:"Tworzy rolę",
+  use:"<prefix>create.role <nazwa>"
 }

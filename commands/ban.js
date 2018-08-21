@@ -26,13 +26,9 @@ var firebase = require('firebase')
       "icon_url": "https://cdn.discordapp.com/avatars/423196130508275716/65a17d5274f3db851ef9ab5f3ed13ea1.jpg?size=2048",
       "text": "Mieciu"
     },
-    "thumbnail": {
-      "url": message.mentions.members.first().user.avatarURL
-    }
   };
 
   message.channel.send({ embed })
-  message.memeber.send({embed});
 })
 }
 module.exports.help = {

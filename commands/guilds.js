@@ -22,5 +22,7 @@ let embed = new Discord.RichEmbed()
 }
 module.exports.help = {
     name: "guilds",
-    category:"info"
+    category:"info",
+  description:"Przedstawia serwery na których jest bot",
+  use:"<prefix>guilds"
 }

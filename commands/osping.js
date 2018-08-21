@@ -7,9 +7,6 @@ module.exports.run = async (client, message, args) => {
 	await database.ref(`/config/${message.guild.id}/pingi`).once('value')
 	.then(async pingi => {
 		if(pingi.val() == false) return message.reply('Komenda jest wyłączona');
-	
-  if(args[0] == '@everyone') return;
-  if(args[0] == '@here') return;
   var kto = args[0];
   var ile = args[1];
   for (i = 1; i <= ile; i++) {
@@ -20,5 +17,7 @@ module.exports.run = async (client, message, args) => {
 }
 module.exports.help = {
 	name: "pingg",
-	category:"util"
+	category:"util",
+  description:"Oznacza osobę wyznaczoną ilość razy",
+  use:"<prefix>pingg <osoba> | <liczba>"
 }

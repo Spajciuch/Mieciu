@@ -16,5 +16,7 @@ tools.unban(message.guild.id, args[0]).then(b => {
 }
 module.exports.help = {
   name: "unban",
-  category:"admin"
+  category:"admin",
+  description:"POdbanowywuje osobę po ID",
+  use:"<prefix>unban <ID>"
 }

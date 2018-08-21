@@ -15,5 +15,7 @@ message.guild.setVerificationLevel(args.join(" "))
 }
 module.exports.help = {
   name: "setverlvl",
-  category:"admin"
+  category:"admin",
+  description:"Ustawia poziom weryfikacji na serwerze",
+  use:"<prefix>setverlvl <liczba>"
 }

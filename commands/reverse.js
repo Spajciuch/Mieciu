@@ -16,5 +16,7 @@ var text = args.join(" ");
    }
    module.exports.help = {
      name: "reverse",
-     category:"util"
+     category:"util",
+  description:"Odwraca podany tekst",
+  use:"<prefix>reverse <tekst>"
    }
