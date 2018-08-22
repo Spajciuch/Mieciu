@@ -1,7 +1,5 @@
-
-
 const Discord = require("discord.js");
-
+var roundTo = require('round-to');
 module.exports.run = async (client, message, args) => {
 var firebase = require('firebase')
   var database = firebase.database()
@@ -10,17 +8,31 @@ var firebase = require('firebase')
     if(pingi.val() == false) return message.reply('Komenda jest wyłączona');
   if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.reply("Nie masz uprawnień.");
   if(!args[0]) return message.channel.send("Podaj liczbę wiadomości do usunięcia");
-  if(args[0]<2) return message.reply("Podaj liczbę w przedziale od 2 do 100")
-  if(args[0]>100) return message.reply("Podaj liczbę w przedziale od 2 do 100")
-  message.channel.bulkDelete(args[0]).then(() => {
-  message.channel.send(`Usunięto ${args[0]} wiadomości.`).then(msg => msg.delete(2000));
-});
+  if(Number(args[0])>100){ 
+    var a = Number(args[0])
+    var b = Math.floor((a / 100) % 10); 
+    var d = b*100
+    var e = a - d 
+    console.log(a)
+    console.log(Number(b))
+    // console.log(c)
+    console.log(d)
+    console.log(e)
+    for(i=0;i<Number(b);i++){
+      message.channel.bulkDelete(100)
+      console.log("Usuwam 100")
+    }
+    message.channel.bulkDelete(e).then(del => message.channel.send("Usunięto " + args[0] + " wiadomości").then(msg => msg.delete(2000)))
+  } else {
+    message.channel.bulkDelete(Number(args[0]))
+    message.channel.send("Usunięto " + args[0] + " wiadomości").then(msg => msg.delete(2000))
+  }
 })
 }
 
 module.exports.help = {
   name: "clear",
   category:"admin",
-  description:"Czyści wiadomości (od 2 do 100)",
-  use:"<prefix>clear <liczba od 2 do 100>"
+  description:"Czyści wiadomości ",
+  use:"<prefix>clear <liczba>"
 }
